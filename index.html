@@ -1,70 +1,882 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ShakyaQX explores hydrological partitioning, energy interactions and quantum-enhanced computation for Earth-system science.">
-<meta name="theme-color" content="#071b2a">
-<title>ShakyaQX | Scientific Research Framework</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShakyaQX (SQX) | An Open-System Generalisation of the Budyko Hypothesis</title>
+<meta name="description" content="ShakyaQX (SQX) is a three-dimensional, open-system generalisation of the Budyko hypothesis, developed by Chandra Mohan Shakya and Prof. Rajib Kumar Bhattacharjya at the Department of Civil Engineering, IIT Guwahati. Published in the Journal of Hydrology (2026).">
+<meta name="author" content="Chandra Mohan Shakya">
+<meta name="keywords" content="ShakyaQX, SQX, Budyko hypothesis, open hydrological systems, water balance, Brahmaputra, hydrology, IIT Guwahati, Chandra Mohan Shakya, Rajib Kumar Bhattacharjya">
+<meta name="theme-color" content="#0a1f2e">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="canonical" href="https://shakyaqx.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shakyaqx.com/">
+<meta property="og:title" content="ShakyaQX (SQX) — An open-system generalisation of the Budyko hypothesis">
+<meta property="og:description" content="A three-dimensional Budyko manifold for open hydrological systems. Shakya & Bhattacharjya, Journal of Hydrology 679 (2026) 136406.">
+<meta property="og:image" content="https://shakyaqx.com/og-image.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://shakyaqx.com/og-image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a1f2e'/%3E%3Cpath d='M10 50 C 22 26, 34 18, 54 16' stroke='%2346c9b8' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='54' cy='16' r='5' fill='%23e9c46a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "A generalized three-dimensional manifold for the Budyko hypothesis: analytical derivation and structural stability in open hydrological systems",
+      "author": [
+        {"@type": "Person", "name": "Chandra Mohan Shakya", "affiliation": {"@type": "Organization", "name": "Department of Civil Engineering, Indian Institute of Technology Guwahati"}},
+        {"@type": "Person", "name": "Rajib Kumar Bhattacharjya", "jobTitle": "Professor", "affiliation": {"@type": "Organization", "name": "Department of Civil Engineering, Indian Institute of Technology Guwahati"}}
+      ],
+      "isPartOf": {"@type": "Periodical", "name": "Journal of Hydrology", "volumeNumber": "679"},
+      "datePublished": "2026",
+      "identifier": "https://doi.org/10.1016/j.jhydrol.2026.136406",
+      "url": "https://doi.org/10.1016/j.jhydrol.2026.136406"
+    },
+    {
+      "@type": "Person",
+      "name": "Chandra Mohan Shakya",
+      "jobTitle": "Ph.D. Scholar",
+      "affiliation": {"@type": "Organization", "name": "Indian Institute of Technology Guwahati"},
+      "email": "mailto:chandra.mohan@iitg.ac.in",
+      "url": "https://shakyaqx.com/",
+      "sameAs": ["https://www.linkedin.com/in/chandra-mohan-shakya-a083b830/"],
+      "knowsAbout": ["Hydrology", "Budyko hypothesis", "Water resources engineering", "Machine learning in hydrology"]
+    }
+  ]
+}
+</script>
 <style>
-:root{--navy:#071b2a;--navy2:#0d2b40;--ink:#142b3a;--muted:#5d7180;--teal:#36c2b2;--cyan:#a6e7df;--paper:#f5f8f8;--line:#dce7e8;--max:1160px}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit}.wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
-.topbar{position:sticky;top:0;z-index:20;background:rgba(7,27,42,.97);border-bottom:1px solid #ffffff19}.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:white;font-weight:850;letter-spacing:.06em}.mark{width:38px;height:38px;border:1px solid #a6e7df99;border-radius:12px;display:grid;place-items:center;color:var(--cyan)}.navlinks{display:flex;align-items:center;gap:22px}.navlinks a{font-size:.88rem;color:#d6e5e9;text-decoration:none}.navlinks a:hover{color:var(--cyan)}.nav-cta{border:1px solid #a6e7df88;padding:8px 14px;border-radius:999px}.menu{display:none;background:none;border:1px solid #547080;color:white;border-radius:9px;padding:8px 11px}
-.hero{background:radial-gradient(ellipse at 82% 25%,#36c2b22e,transparent 34%),linear-gradient(130deg,var(--navy),#0b2c42 65%,#123a4a);color:white}.hero-inner{padding:90px 0 82px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:54px}.eyebrow,.kicker{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:850}.eyebrow{color:var(--cyan);display:flex;align-items:center;gap:10px}.eyebrow:before{content:"";width:28px;height:1px;background:var(--teal)}h1{font-size:clamp(3rem,6.5vw,5.5rem);line-height:1.02;letter-spacing:-.055em;margin:20px 0 22px}h1 span{color:var(--cyan)}.hero p{max-width:660px;color:#d0e0e6;font-size:1.12rem;line-height:1.8;margin:0}.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;padding:12px 19px;border-radius:7px;font-weight:750;font-size:.91rem}.btn-primary{background:var(--teal);color:#06232c}.btn-secondary{border:1px solid #ffffff55;color:white}.hero-note{margin-top:28px;color:#9fb8c3;font-size:.83rem}
-.orbit-card{position:relative;min-height:350px;border:1px solid #a6e7df40;border-radius:22px;background:linear-gradient(145deg,#ffffff14,#ffffff08);display:grid;place-items:center;padding:28px;overflow:hidden}.orbit-card:before,.orbit-card:after{content:"";position:absolute;border:1px solid #a6e7df40;border-radius:50%;width:260px;height:260px;transform:rotate(-28deg) scaleY(.42)}.orbit-card:after{width:320px;height:320px;transform:rotate(48deg) scaleY(.42);border-color:#36c2b259}.core{position:relative;z-index:1;width:160px;height:160px;border-radius:50%;display:grid;place-items:center;text-align:center;background:radial-gradient(circle at 35% 30%,#a6e7df,#36a99f 55%,#126273);color:#06232c;box-shadow:0 0 65px #36c2b240;font-weight:900;font-size:1.45rem}.orbit-label{position:absolute;z-index:2;color:#d5e8eb;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}.ol1{top:35px;left:30px}.ol2{right:24px;top:46%}.ol3{bottom:34px;left:30px}
-.section{padding:82px 0}.section-head{max-width:760px;margin-bottom:38px}.kicker{color:#168f88}h2{font-size:clamp(2rem,4vw,3.15rem);line-height:1.12;letter-spacing:-.04em;margin:10px 0 14px;color:var(--navy)}.lead{font-size:1.06rem;color:var(--muted);margin:0}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border:1px solid var(--line);border-radius:13px;padding:25px;box-shadow:0 8px 26px #0c2a3709}.num,.step{font-size:.76rem;color:#168f88;font-weight:850;letter-spacing:.13em}h3{font-size:1.18rem;line-height:1.3;margin:10px 0;color:var(--navy)}.card p{margin:0;color:var(--muted);font-size:.94rem}.foundation{background:white}.equation-layout{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}.equation{background:var(--navy);color:white;border-radius:15px;padding:34px;display:flex;flex-direction:column;justify-content:center}.eq-label{color:var(--cyan);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;font-weight:800}.formula{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.3rem,2.5vw,2rem);line-height:1.7;margin:20px 0;overflow-wrap:anywhere}.formula sub,.formula sup{font-size:.65em}.equation small{color:#b7cbd2}.explain{padding:12px 0}.explain p{color:var(--muted)}.pill{display:inline-block;border:1px solid #cfe2e1;color:#176e6a;border-radius:999px;padding:5px 10px;font-size:.76rem;font-weight:750;margin:5px 5px 0 0}
-.darkband{background:var(--navy2);color:white}.darkband h2{color:white}.darkband .lead{color:#c1d4dc}.research-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.research-item{border:1px solid #ffffff26;border-radius:13px;padding:25px;background:#ffffff09}.research-item h3{color:white}.research-item p{color:#c1d4dc;margin-bottom:0}.status{display:inline-block;font-size:.69rem;letter-spacing:.1em;text-transform:uppercase;font-weight:850;border-radius:4px;padding:4px 8px;margin-bottom:8px}.published{background:#36c2b229;color:#8ce1d7}.filed{background:#e9bd7026;color:#f0d29a}.developing{background:#9bbee226;color:#bdd6f0}.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.roadmap .card{padding:21px}.publication{display:flex;gap:20px;align-items:flex-start}.pub-mark{flex:0 0 48px;height:48px;border-radius:12px;background:#e2f4f1;color:#137c75;display:grid;place-items:center;font-weight:900}.publication p{color:var(--muted);margin:6px 0}.publication a{color:#087f79;font-weight:750;text-decoration:none}.founder{background:#eaf2f2}.founder-box{display:grid;grid-template-columns:.75fr 1.25fr;gap:40px;align-items:center}.founder-initials{width:150px;height:150px;border-radius:50%;background:linear-gradient(145deg,#0d3447,#168f88);color:white;display:grid;place-items:center;font-size:2.5rem;font-weight:800}.founder-copy p{color:var(--muted)}.footer{background:#061723;color:#a9bdc6;padding:38px 0}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}.footer strong{color:white}.footer a{color:var(--cyan);text-decoration:none}.fine{font-size:.78rem;color:#8199a4;margin-top:12px}
-@media(max-width:850px){.hero-inner{grid-template-columns:1fr;padding:70px 0 60px;gap:35px}.orbit-card{min-height:300px}.grid3{grid-template-columns:1fr}.equation-layout,.founder-box{grid-template-columns:1fr}.roadmap{grid-template-columns:repeat(2,1fr)}.navlinks{display:none;position:absolute;top:73px;left:0;right:0;background:#071b2a;padding:18px 22px 24px;flex-direction:column;align-items:flex-start;border-bottom:1px solid #ffffff20}.navlinks.open{display:flex}.menu{display:block}}
-@media(max-width:520px){.wrap{width:min(var(--max),calc(100% - 32px))}.section{padding:62px 0}.research-grid,.roadmap{grid-template-columns:1fr}.hero-inner{padding-top:56px}.orbit-card{min-height:260px}.core{width:130px;height:130px}.orbit-card:before{width:220px;height:220px}.orbit-card:after{width:270px;height:270px}.publication{gap:13px}}
+:root{
+  --ink:#0f2433; --ink-2:#2a4252; --muted:#5b6f7c; --line:#dfe7ea; --paper:#f7f9f9; --white:#fff;
+  --navy:#0a1f2e; --navy-2:#102d40; --teal:#1f9e8f; --teal-l:#46c9b8; --mint:#bfeee6; --gold:#e9c46a; --rust:#d2785a;
+  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --max:1140px; --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--teal);text-decoration:none} a:hover{text-decoration:underline}
+img,svg{max-width:100%}
+.wrap{width:min(var(--max),calc(100% - 44px));margin:0 auto}
+h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:600;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.15;margin:.35em 0 .45em}
+h3{font-size:1.2rem;line-height:1.35;margin:.2em 0 .5em}
+p{margin:0 0 1em}
+.kicker{font:700 .74rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--teal)}
+.lead{font-size:1.08rem;color:var(--muted);max-width:760px}
+.section{padding:92px 0}
+.section.alt{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{margin-bottom:42px}
+.badge{display:inline-block;font:700 .66rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:6px 9px;border-radius:5px}
+.b-pub{background:#dff5f1;color:#11756a}.b-sub{background:#e4ecf8;color:#2f5d97}.b-pat{background:#fbf0d6;color:#8a6410}.b-th{background:#f2e5f7;color:#7b3f92}.b-fut{background:#eef1f3;color:#56656f}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:0 1px 2px #0f243308,0 10px 30px -18px #0f243326}
+
+/* NAV */
+.top{position:sticky;top:0;z-index:50;background:rgba(10,31,46,.94);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid #ffffff14}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;color:#fff;font-weight:800;letter-spacing:.04em}
+.brand:hover{text-decoration:none}
+.brand small{display:block;font-weight:500;letter-spacing:.02em;color:#9fb9c4;font-size:.7rem;margin-top:1px}
+.logo{width:36px;height:36px;flex:none}
+.links{display:flex;gap:4px;align-items:center}
+.links a{color:#cfdfe5;font-size:.86rem;font-weight:500;padding:8px 11px;border-radius:8px}
+.links a:hover{color:#fff;background:#ffffff12;text-decoration:none}
+.links a.cta{border:1px solid #46c9b880;color:var(--mint);margin-left:6px}
+.menu{display:none;background:none;border:1px solid #ffffff40;color:#fff;border-radius:8px;padding:7px 12px;font:600 .85rem var(--sans)}
+
+/* HERO */
+.hero{background:radial-gradient(900px 500px at 85% 10%,#1f9e8f33,transparent 60%),radial-gradient(700px 400px at 0% 100%,#e9c46a14,transparent 60%),linear-gradient(160deg,var(--navy),#0d2a3d 70%,#11384a);color:#fff;overflow:hidden}
+.hero-in{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center;padding:86px 0 92px}
+.hero .kicker{color:var(--teal-l);display:flex;align-items:center;gap:10px}
+.hero .kicker:before{content:"";width:28px;height:1px;background:var(--teal-l)}
+.hero h1{color:#fff;font-size:clamp(2.5rem,5.4vw,4.2rem);line-height:1.06;margin:20px 0 22px;font-weight:600}
+.hero h1 em{font-style:italic;color:var(--mint)}
+.hero p.sub{color:#c9dbe2;font-size:1.12rem;max-width:620px}
+.hero .cred{margin-top:26px;padding-top:20px;border-top:1px solid #ffffff1f;color:#a9c0ca;font-size:.9rem;line-height:1.6}
+.hero .cred strong{color:#fff;font-weight:600}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:9px;font-weight:650;font-size:.92rem;border:1px solid transparent;cursor:pointer;font-family:var(--sans)}
+.btn:hover{text-decoration:none;transform:translateY(-1px)}
+.btn-p{background:var(--teal-l);color:#06232b}
+.btn-g{border-color:#ffffff4d;color:#fff}
+.btn-d{background:var(--navy);color:#fff}
+.hero-fig{background:linear-gradient(160deg,#ffffff10,#ffffff05);border:1px solid #ffffff1c;border-radius:20px;padding:22px 22px 14px}
+.hero-fig figcaption{font-size:.78rem;color:#94adb8;margin-top:8px;line-height:1.5}
+
+.skip{position:absolute;left:-999px;top:8px;z-index:99;background:#fff;color:var(--ink);padding:8px 14px;border-radius:8px;font-weight:700}
+.skip:focus{left:12px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+.links a.active{color:#fff;background:#ffffff14}
+
+/* 3D */
+.m3d{margin-top:24px;display:grid;grid-template-columns:1fr 300px;gap:0;padding:0;overflow:hidden}
+.m3d canvas{width:100%;height:440px;display:block;cursor:grab;touch-action:none;background:radial-gradient(ellipse at 50% 40%,#123247,#0a1f2e)}
+.m3d canvas:active{cursor:grabbing}
+html:not(.js) .m3d canvas{background:url(data:image/jpeg;base64,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FLRQAlFFFABRRRQAUUUUAJRS0UAJRRRQAUUUUAFFFFABRRRQMSilooASiiigAooooAKSlpKACiiigApaKKACiiigAoopaACiiigAooooEFFFFABRRRQAUUtFABRRRQAUUUUAFFFFABS0UUAFFFFABRRRTEFFLRQAUUUUAFFFFABRRRQAUUUtACUUtFABRRRQAUUUUAFFFFABRRRQIKKKKACnH/VL/vH+lNp5/wBUv+8f6UAMooooAKKKKACiiigAooooGFFFFABRRRQAUlLRQAlFLRQAlFFFABRRRQAUUUUAJRS0UAJRRRQAUUUUhhRRRQAlFLSUAFFFFABRRRQAUlLRQAlFFFABRRRQAUUUUAFFFFAwpKWkoAKKKKACiiigAooooAKKKKACiiigBaKKKACiiigQUUUUAFFFFABS0UUAFFFFABRRRQAUUUtACUtFFABRRRTAKKKWgQlLRRQAUUUUAFFFFABRS0UAFFFFABRRRQAUUUUCCiiigAooooAKKKKACilooASilooASnn/AFS/7x/pTacf9Uv+8f6UAMopaKAEopaKAEopaKAEopaSgAooooAKKKKACiiigAooooGFFFFACUUtFACUUUUAFFFFABRRRQAlFLSUAFFFFABRRRSGJRS0UAJRRRQAUUUUAFJS0UAJRRRQAUUUUAFFFFABRRRQMSilpKACiiigAooooAKKKKACloooAKKKKBBRRRQAUUUUAFLSUtABRRRQAUUUUAFFFLQAUUUUAFFFFMAoopaBBRRRQAUUUUAFFFLQAlLRRQAUUUUAFFFFAgooooAKKKWgBKKWigAooooAKKKKACiiigAooooAKcf9Uv8AvH+lNp5/1S/7x/pQAyiiigAooooAKKKKACiiigAooooAKSlooASilooASiiigAooooAKKKKBhRRRQAlFLRQAlFFFABRRRQAUlLRQAlFFFABRRRSGFJS0UAJRRRQAUUUUAFJS0UAJRRRQAUUUUAFFFFABRRRQMSiiigAooooAKKKWgAooooAKKKKBBRRRQAUUUtABRRRQAUUUUAFFFLQAUUUUAFFFFMAoopaBBRRRQAUUUUAFFFLQAUUUUAFFFFAgooooAKKKWgBKWiigAooooAKKKKACiiimAUUtFACUUtFABRRRQAU4/wCqX/eP9KbTj/ql/wB4/wBKAG0UUUAFFFFACUUt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FAwopKKACiiigAooooAKKKKACikooAKKKKACiiigAoopKACiiigAooopAFFFFABRRRQAUUUUAFFFFABS0lFMBaKSloAKKKKACiiigBaKSigBaKKKACiiigAooooAWikooAWikpaACiiigQUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUALRSUUALRSUUALRSUUALRSUUASLKyjacMv91uRS4ifofLPoeR+dMRGkdURSzMQFAGST6VoatpsWnJbCOYyvIjeaf4Q4bBA9QOmaAKDRsn3hwehHIP40N91P93+ppFkZPunr1HY1Ks2WQYWMdCyjnGaAG+Vt5lbb/s96PN2jEY2D17n8a3dSMkyatbyxqIrSZVtgFA2fNgKPquT74zT/DFlsdLnbFJLK5iCs6gxLj5mwTnJ6D2z7UAc3RSuhjdkbG5SQcHP602gBaKSigBaKSigBaSiigAooooAKKKKACiiigAooooAKKKKACiiigAooooGFFFJQAtFJRQAUUUUAFFFFABRRRQAUUlFABRRRQAUUUUAFFFFABRSUUAFFFFABRRRSAKKKKACiiigBKKdJG0UrxuMMjFSPcU2gBaKSloAKKKKACiiigAooooAWikopgLRRRQAUUUUAFFFFABS0lFAC0UlLQAUUUUAFFFFABRRRQAtFJRQAtFJS0AFFFFABRRRQIKKKKACiiigAooooAKKKKACiiigAooooAKKKKAJrO7lsbqO5gKiSM5UsoIB+hqzf6q1/a20DW8MXkbvmjQLnJz0A4qhRQAUUUUAWJNQvZY4o5LuZkhIMamQkIR0x6VEs0qzecsriXOd4Y7s+uaZRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAwoopKAFopKKACiiigAooooAKKKKACiiigAopKKACiiigAooooAKKKKACikooAKKKKQBRRRQAUUUUAFFFFABSUUUAFFFFAHo3xN8BXen6pNrWm27zWVyxeZY1yYXPXj+6eue35V5zX1jN/qz9K+dPHn/ACMNx/10NZwlc0nG2pzNFFFaGYUtJRQAtFFFABRRRQAUUUUAFFFFMBaKSigBaKKKACiiigAooooAKKKWgAooooAKKKKACiiigAooooAKKKKAClpKKAFopKKAFopKKAFopKKAFopKKBC0UlFAC0UlFAC0UlFAC0UlLQAUUUUAFFJRQAtFJRQAtFJRQAtFJRQAtFJRQMWikooAWikooAWkoooAKKKKACiiigAooooAKKKKACiiigApKWkoAKKKKACiiigAooooAKKKSkAUUUUAFFFFABRRRQAUUUUAFFJRQAUUUUAFFFJQAtFJRQB//9k=) center/cover no-repeat}
+.m3d .side{padding:26px;border-left:1px solid var(--line)}
+.m3d .side p{color:var(--muted);font-size:.9rem}
+.m3d .scale{height:10px;border-radius:5px;background:linear-gradient(90deg,#2b5f9e,#1f9e8f,#e9c46a,#d2785a);margin:6px 0 4px}
+.m3d .scale-l{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
+
+/* TIMELINE */
+.tl{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;padding-top:30px}
+.tl:before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:linear-gradient(90deg,var(--teal),var(--gold))}
+.tl .ev{position:relative}
+.tl .ev:before{content:"";position:absolute;top:-27px;left:0;width:14px;height:14px;border-radius:50%;background:var(--white);border:3px solid var(--c,var(--teal))}
+.tl .when{font:700 .74rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--c,var(--teal))}
+.tl h4{margin:4px 0 4px;font:600 1rem/1.35 var(--serif);color:var(--ink)}
+.tl p{margin:0;font-size:.85rem;color:var(--muted);line-height:1.5}
+
+/* HERO WAVES */
+.hero{position:relative}
+.waves{position:absolute;left:0;right:0;bottom:0;height:120px;pointer-events:none;opacity:.55}
+.waves path{animation:drift 14s linear infinite}
+.waves path:nth-child(2){animation-duration:20s;animation-direction:reverse}
+.waves path:nth-child(3){animation-duration:26s}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-720px)}}
+.hero-in{position:relative;z-index:1}
+
+/* FAMILY FIGURE */
+.family{margin-top:28px;display:grid;grid-template-columns:1fr 290px;padding:0;overflow:hidden}
+.family .fig{background:linear-gradient(160deg,var(--navy),#0d2a3d);padding:22px 22px 10px}
+.family .side{padding:26px}
+.family .side p{color:var(--muted);font-size:.9rem}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;color:var(--ink-2);margin:0 12px 8px 0}
+.chip i{width:18px;height:3px;border-radius:2px;display:inline-block}
+#famPlot .fp{transition:stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1)}
+
+/* VISION */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pillar{position:relative;border-top:4px solid var(--c);display:flex;flex-direction:column;gap:8px}
+.pillar .pi{font:600 2rem/1 var(--serif);color:var(--c);opacity:.9}
+.pillar .badge{align-self:flex-start}
+.pillar h3{margin:4px 0 0}
+.pillar p{margin:0;color:var(--muted);font-size:.92rem}
+.orbit svg{display:block;width:100%}
+.li-btn{display:inline-flex;align-items:center;gap:6px;margin-left:14px}
+.li-btn svg{width:15px;height:15px}
+
+/* EQUATION */
+.eq-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch}
+.eq-box{background:var(--navy);color:#fff;border-radius:18px;padding:36px 34px;position:relative;overflow:hidden}
+.eq-box:after{content:"";position:absolute;right:-80px;bottom:-80px;width:240px;height:240px;border-radius:50%;border:1px solid #46c9b833}
+.eq-box .kicker{color:var(--teal-l)}
+.formula{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.15rem);margin:22px 0 18px;line-height:1.5;white-space:nowrap;overflow-x:auto}
+.formula sup{font-size:.6em}
+.vars{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:.93rem;color:#c5d7de;margin-top:18px}
+.vars b{font-family:var(--serif);font-style:italic;color:var(--mint);font-weight:600;font-size:1.05rem}
+.props{display:grid;gap:14px}
+.prop{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--white)}
+.prop .ic{flex:none;width:34px;height:34px;border-radius:9px;background:#e3f6f2;color:var(--teal);display:grid;place-items:center;font:700 .85rem var(--serif)}
+.prop h4{margin:0 0 3px;font-size:.98rem}
+.prop p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.55}
+.note{font-size:.86rem;color:var(--muted);margin-top:22px;padding:14px 16px;border-left:3px solid var(--gold);background:#fffaf0;border-radius:0 8px 8px 0}
+
+/* EXPLORER */
+.explorer{display:grid;grid-template-columns:330px 1fr;gap:26px;align-items:start}
+.ctrl label{display:flex;justify-content:space-between;font-weight:600;font-size:.92rem;margin-bottom:6px}
+.ctrl label span{font-family:var(--serif);font-style:italic}
+.ctrl output{font-family:ui-monospace,Menlo,Consolas,monospace;font-style:normal;color:var(--teal);font-weight:700}
+.ctrl .row{margin-bottom:22px}
+.ctrl input[type=range]{width:100%;accent-color:var(--teal)}
+.ctrl .hint{font-size:.8rem;color:var(--muted);margin-top:4px;line-height:1.45}
+.readout{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.readout div{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.readout small{display:block;color:var(--muted);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.readout strong{font:700 1.25rem ui-monospace,Menlo,Consolas,monospace;color:var(--ink)}
+.plot-card{padding:18px 18px 10px}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:.8rem;color:var(--muted);padding:4px 8px 6px}
+.legend i{display:inline-block;width:20px;height:0;border-top:3px solid;vertical-align:middle;margin-right:6px}
+#plot text{font-family:var(--sans)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{padding:24px 22px}
+.stat .v{font:600 2.3rem/1.05 var(--serif);color:var(--ink)}
+.stat .v small{font-size:.95rem;color:var(--muted);font-family:var(--sans);font-weight:500}
+.stat .l{font-size:.86rem;color:var(--muted);margin-top:8px;line-height:1.45}
+.stat .t{font:700 .68rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.study{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.study ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:.93rem}
+.study li{margin-bottom:6px}
+
+/* PROGRAMME */
+.prog{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.prog .card{display:flex;flex-direction:column;gap:6px}
+.prog .card p{color:var(--muted);font-size:.92rem;margin:0}
+.prog .card .meta{margin-top:auto;padding-top:12px;font-size:.82rem;color:var(--ink-2)}
+
+/* PUBLICATIONS */
+.pubs{display:grid;gap:16px}
+.pub{display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start}
+.pub .yr{font:600 1.15rem var(--serif);color:var(--teal);border-right:2px solid var(--line);padding-top:2px;height:100%}
+.pub h3{font-size:1.12rem;margin:8px 0 6px}
+.pub .au{font-size:.93rem;color:var(--ink-2);margin:0}
+.pub .au u{text-decoration:none;font-weight:700}
+.pub .src{font-size:.92rem;color:var(--muted);margin:2px 0 10px}
+.pub .lnk{display:flex;gap:16px;flex-wrap:wrap;font-size:.86rem;font-weight:650}
+
+/* PATENT */
+.patent{display:grid;grid-template-columns:1.2fr .8fr;gap:0;padding:0;overflow:hidden}
+.patent .l{padding:34px}
+.patent .r{background:linear-gradient(160deg,#fbf3dd,#f7ead0);padding:34px;border-left:1px solid #efe0bd}
+.patent dl{margin:0;display:grid;gap:14px}
+.patent dt{font:700 .68rem var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#8a6410}
+.patent dd{margin:2px 0 0;font-size:.95rem;color:var(--ink)}
+
+/* PEOPLE */
+.people{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.person{display:grid;grid-template-columns:84px 1fr;gap:20px;padding:30px}
+.av{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;color:#fff;font:600 1.5rem var(--serif);background:linear-gradient(145deg,#0f3a50,#1f9e8f)}
+.av.b{background:linear-gradient(145deg,#3a2f12,#b98a24)}
+.person h3{margin:0;font-size:1.3rem}
+.person .ds{font-size:.92rem;color:var(--ink-2);margin:4px 0 2px;font-weight:600}
+.person .af{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.person .role{display:inline-block;font-size:.76rem;font-weight:700;color:var(--teal);background:#e3f6f2;border-radius:999px;padding:4px 10px;margin:0 6px 10px 0}
+.person p.bio{font-size:.92rem;color:var(--ink-2);margin:0 0 10px}
+.person .lk{font-size:.86rem;font-weight:650}
+
+/* CITE / ACK */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.citebox{position:relative}
+.citebox pre{margin:0;background:#0d2232;color:#cfe5ea;border-radius:12px;padding:20px;font:12.5px/1.6 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word}
+.copy{position:absolute;top:10px;right:10px;background:#ffffff1a;color:#fff;border:1px solid #ffffff33;border-radius:7px;padding:5px 10px;font:600 .75rem var(--sans);cursor:pointer}
+.copy:hover{background:#ffffff2e}
+.apa{font-size:.95rem;color:var(--ink-2);padding:18px 20px;background:var(--paper);border:1px solid var(--line);border-radius:12px;margin-bottom:16px}
+.ack ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:.93rem}
+.ack li{margin-bottom:9px}
+
+/* FOOTER */
+footer{background:#06151f;color:#9ab0ba;padding:50px 0 34px;font-size:.88rem}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+footer h5{color:#fff;font:700 .74rem var(--sans);letter-spacing:.14em;text-transform:uppercase;margin:0 0 12px}
+footer a{color:var(--mint)}
+footer ul{list-style:none;margin:0;padding:0}footer li{margin-bottom:7px}
+.fine{border-top:1px solid #ffffff14;margin-top:34px;padding-top:20px;font-size:.78rem;color:#7b929c;line-height:1.6}
+
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.waves path{animation:none}.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+@media(max-width:980px){
+  .hero-in,.eq-grid,.explorer,.patent,.people,.two,.study{grid-template-columns:1fr}
+  .patent .r{border-left:0;border-top:1px solid #efe0bd}
+  .stats{grid-template-columns:1fr 1fr}.prog,.pillars{grid-template-columns:1fr 1fr}
+  .m3d,.family{grid-template-columns:1fr}.m3d .side{border-left:0;border-top:1px solid var(--line)}
+  .tl{grid-template-columns:1fr 1fr 1fr;row-gap:40px}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--navy);padding:12px 18px 20px;border-bottom:1px solid #ffffff1a}
+  .links.open{display:flex}.links a.cta{margin:6px 0 0;text-align:center}
+  .menu{display:block}
+}
+@media(max-width:600px){
+  .wrap{width:calc(100% - 32px)}.section{padding:66px 0}
+  .stats,.prog,.pillars,.f-grid,.tl{grid-template-columns:1fr}
+  .tl:before{display:none}.tl .ev{padding-left:24px}.tl .ev:before{top:4px}
+  .m3d canvas{height:340px}
+  .hero-in{padding:56px 0 64px}
+  .person{grid-template-columns:1fr;padding:24px}.pub{grid-template-columns:1fr;gap:6px}.pub .yr{border:0;height:auto}
+  .eq-box{padding:28px 22px}.patent .l,.patent .r{padding:24px}
+}
+@media print{.top,.menu,.copy,#explorer{display:none}.hero{background:#fff;color:#000}.hero h1,.hero p.sub{color:#000}}
 </style>
 </head>
 <body>
-<header class="topbar"><div class="wrap nav">
-<a class="brand" href="#home"><span class="mark">SQX</span><span>SHAKYAQX</span></a>
-<button class="menu" id="menuButton" aria-expanded="false" aria-controls="navLinks">Menu</button>
-<nav class="navlinks" id="navLinks" aria-label="Main navigation"><a href="#framework">Framework</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#roadmap">Roadmap</a><a class="nav-cta" href="#contact">About</a></nav>
-</div></header>
-<main>
-<section class="hero" id="home"><div class="wrap hero-inner"><div>
-<div class="eyebrow">Scientific research framework</div>
-<h1>Understanding the <span>Earth system</span> through connected science.</h1>
-<p>ShakyaQX is an interdisciplinary research framework advancing the study of hydrological partitioning, energy interactions and quantum-enhanced computation for Earth-system science.</p>
-<div class="hero-actions"><a class="btn btn-primary" href="#framework">Explore the framework</a><a class="btn btn-secondary" href="#publications">View publication</a></div>
-<div class="hero-note">Founded by Chandra Mohan Shakya · Developed through collaborative research with Prof. Rajib Kumar Bhattacharyja</div></div>
-<div class="orbit-card" role="img" aria-label="Conceptual illustration connecting hydrology, energy and quantum computation"><span class="orbit-label ol1">Hydrology</span><span class="orbit-label ol2">Energy</span><span class="orbit-label ol3">Quantum</span><div class="core">Shakya<br>QX</div></div>
-</div></section>
-<section class="section" id="framework"><div class="wrap"><div class="section-head"><div class="kicker">The framework</div><h2>A connected view of water, energy and computation.</h2><p class="lead">ShakyaQX brings together analytical hydrology and emerging computational approaches. Its foundation is a generalized three-dimensional manifold for the Budyko hypothesis in open hydrological systems.</p></div>
-<div class="grid3">
-<article class="card"><div class="num">01 / HYDROLOGY</div><h3>Hydrological partitioning</h3><p>Investigating how precipitation and potential evapotranspiration relate to actual evapotranspiration and runoff, while accounting for open-system water-balance conditions.</p></article>
-<article class="card"><div class="num">02 / ENERGY</div><h3>Energy-system extension</h3><p>Developing an energy-oriented extension of the research framework to examine coupled water and energy behaviour in Earth-system processes.</p></article>
-<article class="card"><div class="num">03 / COMPUTATION</div><h3>Quantum-enhanced methods</h3><p>Exploring quantum-enhanced computational strategies for hydrological modelling and parameter estimation. This remains an active research direction.</p></article>
-</div></div></section>
-<section class="section foundation"><div class="wrap"><div class="section-head"><div class="kicker">Scientific foundation</div><h2>The generalized 3D Budyko manifold</h2><p class="lead">The published ShakyaQX formulation extends the Budyko perspective by introducing an open-system water-balance coordinate, φ, alongside the aridity index and evaporative partitioning. The foundational publication is co-authored by Chandra Mohan Shakya and Prof. Rajib Kumar Bhattacharyja.</p></div>
-<div class="equation-layout"><div class="equation"><div class="eq-label">Published ShakyaQX relationship</div><div class="formula">E/P = x [1 + (x/φ)<sup>γ</sup>]<sup>−1/γ</sup></div><small>where x = PET/P, φ &gt; 0 and γ &gt; 0.</small></div>
-<div class="explain"><h3>Three coordinates. A family of surfaces.</h3><p>The manifold is expressed in terms of the aridity index <strong>x</strong>, the open-system coordinate <strong>φ</strong>, and the evaporative index <strong>E/P</strong>. The parameter <strong>γ</strong> indexes the family of surfaces.</p><p>In the published framework, the generalized water balance is expressed as P + ΔS = E + Q. The interpretation of ΔS follows the framework's stated subsidy convention; storage-gain conventions in observational products require careful sign conversion.</p><span class="pill">Budyko hypothesis</span><span class="pill">Open hydrological systems</span><span class="pill">3D manifold</span></div></div></div></section>
-<section class="section darkband" id="research"><div class="wrap"><div class="section-head"><div class="kicker">Research directions</div><h2>From analytical structure to new applications.</h2><p class="lead">The website distinguishes peer-reviewed results from filed intellectual property and work that remains under development.</p></div>
-<div class="research-grid">
-<article class="research-item"><span class="status published">Published research</span><h3>Generalized Budyko manifold</h3><p>Analytical derivation and structural-stability analysis of a generalized three-dimensional manifold for the Budyko hypothesis in open hydrological systems.</p></article>
-<article class="research-item"><span class="status filed">Patent filed</span><h3>Collaborative intellectual property</h3><p>The ShakyaQX-related patent work is jointly associated with Chandra Mohan Shakya and Prof. Rajib Kumar Bhattacharyja. The filing status and inventor details should be read from the official patent record; confidential technical details are not presented here.</p></article>
-<article class="research-item"><span class="status developing">Under development</span><h3>Quantum-enhanced computation</h3><p>Research into quantum-enhanced computational approaches for hydrological modelling, including optimization and parameter-estimation strategies.</p></article>
-<article class="research-item"><span class="status developing">Future research</span><h3>Spatial and land-surface integration</h3><p>Proposed directions include land-use and land-cover integration, spatially explicit hydrological analysis and further development of basin-scale process representation.</p></article>
-</div></div></section>
-<section class="section" id="publications"><div class="wrap"><div class="section-head"><div class="kicker">Selected publication</div><h2>Peer-reviewed research</h2><p class="lead">The scientific foundation of ShakyaQX is documented through peer-reviewed research.</p></div>
-<article class="card publication"><div class="pub-mark">JH</div><div><span class="status published">Published · 2026</span><h3>A generalized three-dimensional manifold for the Budyko hypothesis: analytical derivation and structural stability in open hydrological systems</h3><p><strong>C. M. Shakya and R. K. Bhattacharyja.</strong> <em>Journal of Hydrology</em>, 679 (2026), Article 136406.</p><a href="https://doi.org/10.1016/j.jhydrol.2026.136406" target="_blank" rel="noopener">View article and DOI ↗</a></div></article>
-</div></section>
-<section class="section" id="roadmap"><div class="wrap"><div class="section-head"><div class="kicker">Research roadmap</div><h2>Building the next layers of the framework.</h2><p class="lead">These are research directions, not claims of completed or validated capabilities.</p></div>
-<div class="roadmap">
-<article class="card"><div class="step">DIRECTION 01</div><h3>Hydrological validation</h3><p>Evaluate the framework across basins, climates and observational datasets.</p></article>
-<article class="card"><div class="step">DIRECTION 02</div><h3>LULC integration</h3><p>Investigate how land-cover information can inform forward estimation of the open-system coordinate.</p></article>
-<article class="card"><div class="step">DIRECTION 03</div><h3>Spatial process development</h3><p>Develop and test spatially explicit extensions while distinguishing partitioning from routing processes.</p></article>
-<article class="card"><div class="step">DIRECTION 04</div><h3>Quantum computation</h3><p>Assess quantum-enhanced algorithms and their practical value for scientific computation.</p></article>
-</div></div></section>
-<section class="section founder" id="contact"><div class="wrap founder-box"><div class="founder-initials" aria-hidden="true">SQX</div><div class="founder-copy"><div class="kicker">Research leadership and collaboration</div><h2>About the research team</h2><h3>Chandra Mohan Shakya</h3><p><strong>Founder and framework developer.</strong> His research interests include hydrological modelling, the Budyko framework, climate and land-surface interactions, and quantum-enhanced scientific computation.</p><h3>Prof. Rajib Kumar Bhattacharyja</h3><p><strong>Academic supervisor and research collaborator.</strong> Prof. Bhattacharyja is a co-author of the published ShakyaQX foundation paper and is jointly associated with the patent work described on this website.</p><p>ShakyaQX is presented as a research framework developed through this academic collaboration. Publication authorship, patent inventorship and filing status are identified separately wherever relevant.</p><a class="btn btn-primary" href="#publications">Explore the research</a></div></div></section>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="ShakyaQX home">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#123247"/><path d="M8 52 L34 26" stroke="#ffffff40" stroke-width="2" stroke-dasharray="3 3"/><path d="M10 50 C 22 27, 34 19, 54 16" stroke="#46c9b8" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="54" cy="16" r="5" fill="#e9c46a"/></svg>
+      <span>SHAKYAQX<small>Hydrology · Energy · Quantum</small></span>
+    </a>
+    <button class="menu" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <nav class="links" id="navLinks" aria-label="Main">
+      <a href="#vision">Theme</a>
+      <a href="#framework">Framework</a>
+      <a href="#explorer">Explorer</a>
+      <a href="#validation">Validation</a>
+      <a href="#programme">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#patent">Patent</a>
+      <a href="#milestones">Milestones</a>
+      <a href="#people">People</a>
+      <a class="cta" href="#cite">Cite</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap hero-in">
+    <div>
+      <div class="kicker">Hydrology · Energy · Quantum computation</div>
+      <h1>Water, energy and computation in <em>one open-system view</em>.</h1>
+      <p class="sub">ShakyaQX is a research theme for Earth-system science. Its foundation is the <strong>SQX manifold</strong>, a peer-reviewed, three-dimensional generalisation of the Budyko hypothesis for <strong>open hydrological systems</strong>. The theme builds from there towards coupled water–energy behaviour, land-surface information and quantum-enhanced computation.</p>
+      <div class="actions">
+        <a class="btn btn-p" href="https://doi.org/10.1016/j.jhydrol.2026.136406" target="_blank" rel="noopener">Read the paper ↗</a>
+        <a class="btn btn-g" href="#vision">Explore the ShakyaQX theme</a>
+      </div>
+      <div class="cred">
+        Developed by <strong>Chandra Mohan Shakya</strong> (Ph.D. Scholar) under the supervision of <strong>Prof. Rajib Kumar Bhattacharjya</strong>,<br>
+        Department of Civil Engineering, Indian Institute of Technology Guwahati.<br>
+        Published in <em>Journal of Hydrology</em>, Vol. 679 (2026), Article 136406.
+      </div>
+    </div>
+    <figure class="hero-fig orbit" style="margin:0">
+      <svg viewBox="0 0 460 400" role="img" aria-label="The ShakyaQX theme: hydrology, energy and quantum computation linked around the SQX core">
+        <defs>
+          <radialGradient id="coreG" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#c9f4ec"/><stop offset=".55" stop-color="#3fb3a4"/><stop offset="1" stop-color="#0f5a68"/></radialGradient>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+          <path id="o1" d="M60 200 a170 64 0 1 0 340 0 a170 64 0 1 0 -340 0"/>
+        </defs>
+        <g fill="none" stroke-width="1.2">
+          <ellipse cx="230" cy="200" rx="170" ry="64" stroke="#46c9b866"/>
+          <ellipse cx="230" cy="200" rx="170" ry="64" stroke="#e9c46a55" transform="rotate(60 230 200)"/>
+          <ellipse cx="230" cy="200" rx="170" ry="64" stroke="#a99cf055" transform="rotate(-60 230 200)"/>
+        </g>
+        <!-- moving particles -->
+        <circle r="4" fill="#46c9b8"><animateMotion dur="9s" repeatCount="indefinite"><mpath href="#o1"/></animateMotion></circle>
+        <g transform="rotate(60 230 200)"><circle r="4" fill="#e9c46a"><animateMotion dur="11s" repeatCount="indefinite" begin="-3s"><mpath href="#o1"/></animateMotion></circle></g>
+        <g transform="rotate(-60 230 200)"><circle r="4" fill="#a99cf0"><animateMotion dur="13s" repeatCount="indefinite" begin="-6s"><mpath href="#o1"/></animateMotion></circle></g>
+        <circle cx="230" cy="200" r="70" fill="#46c9b8" opacity=".25" filter="url(#glow)"/>
+        <circle cx="230" cy="200" r="58" fill="url(#coreG)"/>
+        <text x="230" y="196" text-anchor="middle" fill="#06232b" font-family="Source Serif 4,Georgia,serif" font-weight="700" font-size="22">Shakya</text>
+        <text x="230" y="221" text-anchor="middle" fill="#06232b" font-family="Inter,sans-serif" font-weight="800" font-size="19" letter-spacing="2">QX</text>
+        <!-- nodes -->
+        <g font-family="Inter,sans-serif" font-size="11.5" font-weight="700" letter-spacing="1.4">
+          <circle cx="62" cy="200" r="9" fill="#0a1f2e" stroke="#46c9b8" stroke-width="2"/>
+          <text x="40" y="236" fill="#bfeee6">HYDROLOGY</text>
+          <circle cx="315" cy="53" r="9" fill="#0a1f2e" stroke="#e9c46a" stroke-width="2"/>
+          <text x="332" y="57" fill="#f3dc9f">ENERGY</text>
+          <circle cx="315" cy="347" r="9" fill="#0a1f2e" stroke="#a99cf0" stroke-width="2"/>
+          <text x="332" y="351" fill="#d3ccfa">QUANTUM</text>
+        </g>
+      </svg>
+      <figcaption>The ShakyaQX theme links three areas around the SQX core: open-system hydrology, coupled water–energy behaviour and quantum-enhanced computation.</figcaption>
+    </figure>
+  </div>
+  <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 70 Q90 40 180 70 T360 70 T540 70 T720 70 T900 70 T1080 70 T1260 70 T1440 70 T1620 70 T1800 70 T1980 70 T2160 70 V120 H0Z" fill="#46c9b812"/>
+    <path d="M0 85 Q90 60 180 85 T360 85 T540 85 T720 85 T900 85 T1080 85 T1260 85 T1440 85 T1620 85 T1800 85 T1980 85 T2160 85 V120 H0Z" fill="#46c9b80f"/>
+    <path d="M0 100 Q90 82 180 100 T360 100 T540 100 T720 100 T900 100 T1080 100 T1260 100 T1440 100 T1620 100 T1800 100 T1980 100 T2160 100 V120 H0Z" fill="#f7f9f9"/>
+  </svg>
+</section>
+
+<!-- VISION -->
+<section class="section alt" id="vision">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">The ShakyaQX theme</div>
+      <h2>More than one paper: a research programme</h2>
+      <p class="lead">The published SQX manifold is the first layer. ShakyaQX is meant to grow from it into a connected framework for water, energy and computation in open Earth systems. Each layer below is labelled honestly by its current status.</p>
+    </div>
+    <div class="pillars">
+      <article class="card pillar reveal" style="--c:#1f9e8f">
+        <div class="pi">01</div><span class="badge b-pub">Published foundation</span>
+        <h3>Open-system hydrology</h3>
+        <p>The SQX manifold makes basin openness an explicit coordinate of the Budyko framework. This covers glacier melt, groundwater depletion, reservoir regulation and inter-basin transfers, which classical theory assumes away.</p>
+      </article>
+      <article class="card pillar reveal" style="--c:#c99a2e">
+        <div class="pi">02</div><span class="badge b-sub">Open preprint · developing</span>
+        <h3>Coupled water–energy</h3>
+        <p>A dual Budyko view that links how water is partitioned with how surface energy is partitioned, so a basin's hydrological state and thermal state can be read together.</p>
+      </article>
+      <article class="card pillar reveal" style="--c:#7d6fd6">
+        <div class="pi">03</div><span class="badge b-pat">Patent pending</span>
+        <h3>Quantum-enhanced computation</h3>
+        <p>Quantum–classical hybrid methods for calibrating and estimating parameters in Budyko-based models, developed under the filed patent application.</p>
+      </article>
+      <article class="card pillar reveal" style="--c:#56656f">
+        <div class="pi">04</div><span class="badge b-fut">Future direction</span>
+        <h3>Land surface &amp; decision tools</h3>
+        <p>Forward estimation of openness from land-use and land-cover information, together with spatial (GIS) tools that make the framework usable for water planning.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FRAMEWORK -->
+<section class="section" id="framework">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">The framework</div>
+      <h2>From a curve to a manifold</h2>
+      <p class="lead">Classical Budyko-type equations describe how precipitation splits into evaporation and runoff in a <em>closed</em> catchment at steady state. Real basins are often open: groundwater is pumped or recharged, storage drains after the monsoon, and water moves across boundaries. SQX makes that openness an explicit state variable instead of treating it as error.</p>
+    </div>
+    <div class="eq-grid">
+      <div class="eq-box reveal">
+        <div class="kicker">The SQX partition equation</div>
+        <div class="formula">E/P = x·[ 1 + (x/φ)<sup>γ</sup> ]<sup>−1/γ</sup></div>
+        <div style="color:#c5d7de;font-size:.94rem">with the generalised water balance &nbsp;<span style="font-family:var(--serif);color:#fff">P + ΔS = E + Q</span></div>
+        <div class="vars">
+          <b>x</b><span>Aridity index, PET / P (the climatic coordinate)</span>
+          <b>φ</b><span>Openness coordinate, φ = 1 + ΔS/P &nbsp;(φ &gt; 0). φ = 1 for a closed basin</span>
+          <b>γ</b><span>Landscape response parameter that indexes the family of surfaces</span>
+          <b>E/P</b><span>Evaporative index; runoff follows as Q/P = φ − E/P</span>
+        </div>
+      </div>
+      <div class="props">
+        <div class="prop reveal"><div class="ic">1</div><div><h4>Reduces to the classical form</h4><p>At φ = 1 the surface becomes the Mezentsev–Choudhury–Yang (MCY) Budyko curve, so all classical results are kept as a special case.</p></div></div>
+        <div class="prop reveal"><div class="ic">2</div><div><h4>Physically bounded</h4><p>Evaporation is limited by energy (E/P → x) in humid climates and by available water, now including storage supply (E/P → φ), in arid ones.</p></div></div>
+        <div class="prop reveal"><div class="ic">3</div><div><h4>Structurally stable</h4><p>Strictly monotonic and globally concave in x. The input-rescaling singularity is moved to the boundary of the admissible domain (φ → 0) rather than appearing inside it. One continuous equation covers storage-subsidized and storage-depleted states, with no piecewise forms.</p></div></div>
+        <div class="prop reveal"><div class="ic">4</div><div><h4>A stable climatic coordinate</h4><p>Openness enters as a separate axis, so the aridity index keeps its climatic meaning instead of being rescaled by storage terms.</p></div></div>
+      </div>
+    </div>
+    <p class="note reveal"><strong>Sign convention.</strong> SQX treats ΔS as a net <em>subsidy</em> to the active water balance. ΔS &gt; 0 is a net water gain (for example glacier melt or groundwater inflow), so φ &gt; 1 is <em>storage-subsidized</em>. ΔS &lt; 0 is depletion (for example groundwater extraction or drought), so φ &lt; 1 is <em>storage-depleted</em>. This differs from the usual storage-anomaly convention, so φ should not be read as a direct restatement of GRACE storage change.</p>
+    <div class="card family reveal">
+      <div class="fig"><svg id="famPlot" viewBox="0 0 640 380" role="img" aria-label="Family of SQX curves for openness phi from 0.7 to 1.3"><line x1="50" x2="50" y1="336" y2="16" stroke="#ffffff14"></line><text x="50" y="354" text-anchor="middle" fill="#8fa9b4" font-size="12">0</text><line x1="180" x2="180" y1="336" y2="16" stroke="#ffffff14"></line><text x="180" y="354" text-anchor="middle" fill="#8fa9b4" font-size="12">1</text><line x1="310" x2="310" y1="336" y2="16" stroke="#ffffff14"></line><text x="310" y="354" text-anchor="middle" fill="#8fa9b4" font-size="12">2</text><line x1="440" x2="440" y1="336" y2="16" stroke="#ffffff14"></line><text x="440" y="354" text-anchor="middle" fill="#8fa9b4" font-size="12">3</text><line x1="570" x2="570" y1="336" y2="16" stroke="#ffffff14"></line><text x="570" y="354" text-anchor="middle" fill="#8fa9b4" font-size="12">4</text><line x1="50" x2="570" y1="336" y2="336" stroke="#ffffff14"></line><text x="41" y="340" text-anchor="end" fill="#8fa9b4" font-size="12">0.0</text><line x1="50" x2="570" y1="247.72413793103448" y2="247.72413793103448" stroke="#ffffff14"></line><text x="41" y="251.72413793103448" text-anchor="end" fill="#8fa9b4" font-size="12">0.4</text><line x1="50" x2="570" y1="159.44827586206895" y2="159.44827586206895" stroke="#ffffff14"></line><text x="41" y="163.44827586206895" text-anchor="end" fill="#8fa9b4" font-size="12">0.8</text><line x1="50" x2="570" y1="71.17241379310343" y2="71.17241379310343" stroke="#ffffff14"></line><text x="41" y="75.17241379310343" text-anchor="end" fill="#8fa9b4" font-size="12">1.2</text><text x="310" y="374" text-anchor="middle" fill="#c5d7de" font-size="13" font-style="italic">Aridity index  x = PET / P</text><text x="14" y="168" text-anchor="middle" fill="#c5d7de" font-size="13" font-style="italic" transform="rotate(-90 14 168)">E / P</text><path d="M50 336L238.5 16" stroke="#e9c46a77" stroke-width="1.5" stroke-dasharray="4 5" fill="none"></path><text x="203.4" y="44.68965517241378" fill="#e9c46aaa" font-size="11" transform="rotate(-50 203.4 44.68965517241378)">energy limit</text><path d="M50.1 335.8L53.4 330.3L56.6 324.9L59.9 319.7L63.1 314.6L66.4 309.7L69.6 304.9L72.9 300.4L76.1 296.0L79.4 291.8L82.6 287.8L85.9 284.0L89.1 280.3L92.4 276.8L95.6 273.5L98.9 270.3L102.1 267.3L105.4 264.4L108.6 261.6L111.9 259.0L115.1 256.5L118.4 254.1L121.6 251.8L124.9 249.6L128.1 247.5L131.4 245.5L134.6 243.6L137.9 241.8L141.1 240.0L144.4 238.4L147.6 236.8L150.9 235.2L154.1 233.7L157.4 232.3L160.6 231.0L163.9 229.7L167.1 228.4L170.4 227.2L173.6 226.1L176.9 225.0L180.1 223.9L183.4 222.9L186.6 221.9L189.9 221.0L193.1 220.0L196.4 219.2L199.6 218.3L202.9 217.5L206.1 216.7L209.4 215.9L212.6 215.2L215.9 214.5L219.1 213.8L222.4 213.1L225.6 212.5L228.9 211.9L232.1 211.3L235.4 210.7L238.6 210.1L241.9 209.6L245.1 209.0L248.4 208.5L251.6 208.0L254.9 207.5L258.1 207.0L261.4 206.6L264.6 206.1L267.9 205.7L271.1 205.3L274.4 204.9L277.6 204.5L280.9 204.1L284.1 203.7L287.4 203.4L290.6 203.0L293.9 202.7L297.1 202.3L300.4 202.0L303.6 201.7L306.9 201.4L310.1 201.0L313.4 200.7L316.6 200.5L319.9 200.2L323.1 199.9L326.4 199.6L329.6 199.4L332.9 199.1L336.1 198.9L339.4 198.6L342.6 198.4L345.9 198.1L349.1 197.9L352.4 197.7L355.6 197.5L358.9 197.3L362.1 197.1L365.4 196.8L368.6 196.6L371.9 196.5L375.1 196.3L378.4 196.1L381.6 195.9L384.9 195.7L388.1 195.5L391.4 195.4L394.6 195.2L397.9 195.0L401.1 194.9L404.4 194.7L407.6 194.5L410.9 194.4L414.1 194.2L417.4 194.1L420.6 194.0L423.9 193.8L427.1 193.7L430.4 193.5L433.6 193.4L436.9 193.3L440.1 193.1L443.4 193.0L446.6 192.9L449.9 192.8L453.1 192.6L456.4 192.5L459.6 192.4L462.9 192.3L466.1 192.2L469.4 192.1L472.6 192.0L475.9 191.9L479.1 191.8L482.4 191.7L485.6 191.6L488.9 191.5L492.1 191.4L495.4 191.3L498.6 191.2L501.9 191.1L505.1 191.0L508.4 190.9L511.6 190.8L514.9 190.7L518.1 190.6L521.4 190.5L524.6 190.5L527.9 190.4L531.1 190.3L534.4 190.2L537.6 190.1L540.9 190.1L544.1 190.0L547.4 189.9L550.6 189.8L553.9 189.8L557.1 189.7L560.4 189.6L563.6 189.6L566.9 189.5L570.1 189.4" fill="none" stroke="#2e7f8f" stroke-width="2.8" stroke-linecap="round" class="fp"></path><text x="578" y="193.41789337082997" fill="#2e7f8f" font-size="12" font-weight="700">φ = 0.70</text><path d="M50.1 335.8L53.4 330.3L56.6 324.9L59.9 319.6L63.1 314.4L66.4 309.3L69.6 304.4L72.9 299.7L76.1 295.0L79.4 290.6L82.6 286.3L85.9 282.1L89.1 278.1L92.4 274.2L95.6 270.5L98.9 266.9L102.1 263.5L105.4 260.1L108.6 257.0L111.9 253.9L115.1 250.9L118.4 248.1L121.6 245.3L124.9 242.7L128.1 240.2L131.4 237.7L134.6 235.4L137.9 233.1L141.1 231.0L144.4 228.9L147.6 226.8L150.9 224.9L154.1 223.0L157.4 221.2L160.6 219.5L163.9 217.8L167.1 216.2L170.4 214.6L173.6 213.1L176.9 211.6L180.1 210.2L183.4 208.9L186.6 207.6L189.9 206.3L193.1 205.1L196.4 203.9L199.6 202.7L202.9 201.6L206.1 200.5L209.4 199.5L212.6 198.5L215.9 197.5L219.1 196.5L222.4 195.6L225.6 194.7L228.9 193.8L232.1 193.0L235.4 192.2L238.6 191.4L241.9 190.6L245.1 189.8L248.4 189.1L251.6 188.4L254.9 187.7L258.1 187.0L261.4 186.4L264.6 185.8L267.9 185.1L271.1 184.5L274.4 183.9L277.6 183.4L280.9 182.8L284.1 182.3L287.4 181.7L290.6 181.2L293.9 180.7L297.1 180.2L300.4 179.8L303.6 179.3L306.9 178.8L310.1 178.4L313.4 177.9L316.6 177.5L319.9 177.1L323.1 176.7L326.4 176.3L329.6 175.9L332.9 175.5L336.1 175.2L339.4 174.8L342.6 174.5L345.9 174.1L349.1 173.8L352.4 173.4L355.6 173.1L358.9 172.8L362.1 172.5L365.4 172.2L368.6 171.9L371.9 171.6L375.1 171.3L378.4 171.0L381.6 170.7L384.9 170.5L388.1 170.2L391.4 169.9L394.6 169.7L397.9 169.4L401.1 169.2L404.4 169.0L407.6 168.7L410.9 168.5L414.1 168.3L417.4 168.0L420.6 167.8L423.9 167.6L427.1 167.4L430.4 167.2L433.6 167.0L436.9 166.8L440.1 166.6L443.4 166.4L446.6 166.2L449.9 166.0L453.1 165.8L456.4 165.7L459.6 165.5L462.9 165.3L466.1 165.1L469.4 165.0L472.6 164.8L475.9 164.6L479.1 164.5L482.4 164.3L485.6 164.2L488.9 164.0L492.1 163.9L495.4 163.7L498.6 163.6L501.9 163.4L505.1 163.3L508.4 163.2L511.6 163.0L514.9 162.9L518.1 162.8L521.4 162.6L524.6 162.5L527.9 162.4L531.1 162.2L534.4 162.1L537.6 162.0L540.9 161.9L544.1 161.8L547.4 161.6L550.6 161.5L553.9 161.4L557.1 161.3L560.4 161.2L563.6 161.1L566.9 161.0L570.1 160.9" fill="none" stroke="#3aa6a0" stroke-width="2.8" stroke-linecap="round" class="fp"></path><text x="578" y="164.88375248374103" fill="#3aa6a0" font-size="12" font-weight="700">φ = 0.85</text><path d="M50.1 335.8L53.4 330.3L56.6 324.8L59.9 319.5L63.1 314.2L66.4 309.1L69.6 304.1L72.9 299.2L76.1 294.4L79.4 289.7L82.6 285.2L85.9 280.8L89.1 276.5L92.4 272.4L95.6 268.4L98.9 264.5L102.1 260.7L105.4 257.1L108.6 253.5L111.9 250.1L115.1 246.8L118.4 243.6L121.6 240.5L124.9 237.5L128.1 234.6L131.4 231.8L134.6 229.0L137.9 226.4L141.1 223.9L144.4 221.4L147.6 219.0L150.9 216.7L154.1 214.5L157.4 212.3L160.6 210.2L163.9 208.2L167.1 206.2L170.4 204.3L173.6 202.5L176.9 200.7L180.1 198.9L183.4 197.2L186.6 195.6L189.9 194.0L193.1 192.5L196.4 191.0L199.6 189.5L202.9 188.1L206.1 186.8L209.4 185.4L212.6 184.1L215.9 182.9L219.1 181.7L222.4 180.5L225.6 179.3L228.9 178.2L232.1 177.1L235.4 176.1L238.6 175.0L241.9 174.0L245.1 173.0L248.4 172.1L251.6 171.1L254.9 170.2L258.1 169.4L261.4 168.5L264.6 167.7L267.9 166.8L271.1 166.0L274.4 165.3L277.6 164.5L280.9 163.8L284.1 163.0L287.4 162.3L290.6 161.6L293.9 161.0L297.1 160.3L300.4 159.7L303.6 159.0L306.9 158.4L310.1 157.8L313.4 157.2L316.6 156.6L319.9 156.1L323.1 155.5L326.4 155.0L329.6 154.5L332.9 153.9L336.1 153.4L339.4 152.9L342.6 152.5L345.9 152.0L349.1 151.5L352.4 151.1L355.6 150.6L358.9 150.2L362.1 149.8L365.4 149.3L368.6 148.9L371.9 148.5L375.1 148.1L378.4 147.7L381.6 147.4L384.9 147.0L388.1 146.6L391.4 146.3L394.6 145.9L397.9 145.6L401.1 145.2L404.4 144.9L407.6 144.6L410.9 144.2L414.1 143.9L417.4 143.6L420.6 143.3L423.9 143.0L427.1 142.7L430.4 142.4L433.6 142.1L436.9 141.9L440.1 141.6L443.4 141.3L446.6 141.0L449.9 140.8L453.1 140.5L456.4 140.3L459.6 140.0L462.9 139.8L466.1 139.5L469.4 139.3L472.6 139.1L475.9 138.8L479.1 138.6L482.4 138.4L485.6 138.2L488.9 138.0L492.1 137.7L495.4 137.5L498.6 137.3L501.9 137.1L505.1 136.9L508.4 136.7L511.6 136.5L514.9 136.3L518.1 136.2L521.4 136.0L524.6 135.8L527.9 135.6L531.1 135.4L534.4 135.3L537.6 135.1L540.9 134.9L544.1 134.8L547.4 134.6L550.6 134.4L553.9 134.3L557.1 134.1L560.4 133.9L563.6 133.8L566.9 133.6L570.1 133.5" fill="none" stroke="#cfe5ea" stroke-width="2" stroke-linecap="round" class="" stroke-dasharray="6 5"></path><text x="578" y="137.50044337565498" fill="#cfe5ea" font-size="12" font-weight="700">φ = 1.00</text><path d="M50.1 335.8L53.4 330.3L56.6 324.8L59.9 319.4L63.1 314.1L66.4 308.9L69.6 303.8L72.9 298.8L76.1 293.9L79.4 289.1L82.6 284.4L85.9 279.8L89.1 275.4L92.4 271.0L95.6 266.8L98.9 262.7L102.1 258.6L105.4 254.7L108.6 250.9L111.9 247.2L115.1 243.6L118.4 240.1L121.6 236.7L124.9 233.4L128.1 230.2L131.4 227.1L134.6 224.0L137.9 221.1L141.1 218.2L144.4 215.5L147.6 212.7L150.9 210.1L154.1 207.6L157.4 205.1L160.6 202.7L163.9 200.3L167.1 198.0L170.4 195.8L173.6 193.7L176.9 191.6L180.1 189.5L183.4 187.5L186.6 185.6L189.9 183.7L193.1 181.9L196.4 180.1L199.6 178.4L202.9 176.7L206.1 175.0L209.4 173.4L212.6 171.9L215.9 170.4L219.1 168.9L222.4 167.4L225.6 166.0L228.9 164.7L232.1 163.3L235.4 162.0L238.6 160.7L241.9 159.5L245.1 158.3L248.4 157.1L251.6 156.0L254.9 154.8L258.1 153.7L261.4 152.6L264.6 151.6L267.9 150.6L271.1 149.6L274.4 148.6L277.6 147.6L280.9 146.7L284.1 145.8L287.4 144.9L290.6 144.0L293.9 143.2L297.1 142.3L300.4 141.5L303.6 140.7L306.9 139.9L310.1 139.2L313.4 138.4L316.6 137.7L319.9 136.9L323.1 136.2L326.4 135.5L329.6 134.9L332.9 134.2L336.1 133.6L339.4 132.9L342.6 132.3L345.9 131.7L349.1 131.1L352.4 130.5L355.6 129.9L358.9 129.3L362.1 128.8L365.4 128.2L368.6 127.7L371.9 127.2L375.1 126.7L378.4 126.2L381.6 125.7L384.9 125.2L388.1 124.7L391.4 124.2L394.6 123.8L397.9 123.3L401.1 122.9L404.4 122.4L407.6 122.0L410.9 121.6L414.1 121.2L417.4 120.7L420.6 120.3L423.9 119.9L427.1 119.6L430.4 119.2L433.6 118.8L436.9 118.4L440.1 118.1L443.4 117.7L446.6 117.4L449.9 117.0L453.1 116.7L456.4 116.3L459.6 116.0L462.9 115.7L466.1 115.4L469.4 115.0L472.6 114.7L475.9 114.4L479.1 114.1L482.4 113.8L485.6 113.5L488.9 113.3L492.1 113.0L495.4 112.7L498.6 112.4L501.9 112.1L505.1 111.9L508.4 111.6L511.6 111.4L514.9 111.1L518.1 110.9L521.4 110.6L524.6 110.4L527.9 110.1L531.1 109.9L534.4 109.6L537.6 109.4L540.9 109.2L544.1 109.0L547.4 108.7L550.6 108.5L553.9 108.3L557.1 108.1L560.4 107.9L563.6 107.7L566.9 107.5L570.1 107.3" fill="none" stroke="#5fd3bf" stroke-width="2.8" stroke-linecap="round" class="fp"></path><text x="578" y="111.27583718883221" fill="#5fd3bf" font-size="12" font-weight="700">φ = 1.15</text><path d="M50.1 335.8L53.4 330.3L56.6 324.8L59.9 319.4L63.1 314.1L66.4 308.8L69.6 303.6L72.9 298.6L76.1 293.6L79.4 288.7L82.6 283.8L85.9 279.1L89.1 274.5L92.4 270.0L95.6 265.6L98.9 261.3L102.1 257.1L105.4 252.9L108.6 248.9L111.9 245.0L115.1 241.2L118.4 237.4L121.6 233.8L124.9 230.2L128.1 226.7L131.4 223.4L134.6 220.1L137.9 216.8L141.1 213.7L144.4 210.6L147.6 207.7L150.9 204.7L154.1 201.9L157.4 199.1L160.6 196.4L163.9 193.8L167.1 191.3L170.4 188.8L173.6 186.3L176.9 183.9L180.1 181.6L183.4 179.4L186.6 177.2L189.9 175.0L193.1 172.9L196.4 170.9L199.6 168.9L202.9 166.9L206.1 165.0L209.4 163.1L212.6 161.3L215.9 159.6L219.1 157.8L222.4 156.1L225.6 154.5L228.9 152.9L232.1 151.3L235.4 149.7L238.6 148.2L241.9 146.8L245.1 145.3L248.4 143.9L251.6 142.5L254.9 141.2L258.1 139.9L261.4 138.6L264.6 137.3L267.9 136.1L271.1 134.9L274.4 133.7L277.6 132.6L280.9 131.4L284.1 130.3L287.4 129.2L290.6 128.2L293.9 127.1L297.1 126.1L300.4 125.1L303.6 124.2L306.9 123.2L310.1 122.3L313.4 121.3L316.6 120.4L319.9 119.5L323.1 118.7L326.4 117.8L329.6 117.0L332.9 116.2L336.1 115.4L339.4 114.6L342.6 113.8L345.9 113.1L349.1 112.3L352.4 111.6L355.6 110.9L358.9 110.2L362.1 109.5L365.4 108.8L368.6 108.1L371.9 107.5L375.1 106.8L378.4 106.2L381.6 105.6L384.9 105.0L388.1 104.4L391.4 103.8L394.6 103.2L397.9 102.6L401.1 102.1L404.4 101.5L407.6 101.0L410.9 100.4L414.1 99.9L417.4 99.4L420.6 98.9L423.9 98.4L427.1 97.9L430.4 97.4L433.6 96.9L436.9 96.5L440.1 96.0L443.4 95.5L446.6 95.1L449.9 94.7L453.1 94.2L456.4 93.8L459.6 93.4L462.9 93.0L466.1 92.6L469.4 92.2L472.6 91.8L475.9 91.4L479.1 91.0L482.4 90.6L485.6 90.2L488.9 89.9L492.1 89.5L495.4 89.2L498.6 88.8L501.9 88.5L505.1 88.1L508.4 87.8L511.6 87.5L514.9 87.1L518.1 86.8L521.4 86.5L524.6 86.2L527.9 85.9L531.1 85.6L534.4 85.3L537.6 85.0L540.9 84.7L544.1 84.4L547.4 84.1L550.6 83.8L553.9 83.5L557.1 83.3L560.4 83.0L563.6 82.7L566.9 82.5L570.1 82.2" fill="none" stroke="#e9c46a" stroke-width="2.8" stroke-linecap="round" class="fp"></path><text x="578" y="86.20236405942592" fill="#e9c46a" font-size="12" font-weight="700">φ = 1.30</text><circle r="5" fill="#fff" opacity="0"></circle></svg></div>
+      <div class="side">
+        <div class="kicker">One equation, many basins</div>
+        <h3 style="margin-top:10px">The SQX family of curves</h3>
+        <p>Each curve is a slice of the manifold at fixed openness φ, all with γ = 1.454. Storage-depleted states (φ &lt; 1) sit below the classical Budyko curve, and storage-subsidized states (φ &gt; 1) sit above it. The classical curve is the dashed line at φ = 1.</p>
+        <div><span class="chip"><i style="background:#2e7f8f"></i>φ = 0.70</span><span class="chip"><i style="background:#3aa6a0"></i>0.85</span><span class="chip"><i style="background:#cfe5ea;outline:1px dashed #9aa9b2"></i>1.00</span><span class="chip"><i style="background:#5fd3bf"></i>1.15</span><span class="chip"><i style="background:#e9c46a"></i>1.30</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORER -->
+<section class="section alt" id="explorer">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Interactive explorer</div>
+      <h2>See how openness reshapes the partition</h2>
+      <p class="lead">Move the sliders to change the openness coordinate φ and the landscape parameter γ. The curve, the water limit and the readouts update live from the published SQX equation.</p>
+    </div>
+    <div class="explorer">
+      <div class="card ctrl reveal">
+        <div class="row">
+          <label for="phi"><span>φ &nbsp;openness</span><output id="phiOut">1.00</output></label>
+          <input id="phi" type="range" min="0.4" max="1.6" step="0.01" value="1.00">
+          <div class="hint">φ &lt; 1: storage-depleted (less water available to partition). φ &gt; 1: storage-subsidized (for example glacier melt or groundwater inflow).</div>
+        </div>
+        <div class="row">
+          <label for="gam"><span>γ &nbsp;landscape</span><output id="gamOut">1.454</output></label>
+          <input id="gam" type="range" min="0.6" max="4" step="0.001" value="1.454">
+          <div class="hint">γ = 1.454 is the annual optimum calibrated at Goalpara on the Brahmaputra.</div>
+        </div>
+        <div class="row">
+          <label for="xv"><span>x &nbsp;aridity (PET/P)</span><output id="xOut">1.00</output></label>
+          <input id="xv" type="range" min="0.05" max="5" step="0.01" value="1.00">
+        </div>
+        <div class="readout">
+          <div><small>E / P</small><strong id="epOut">–</strong></div>
+          <div><small>Q / P</small><strong id="qpOut">–</strong></div>
+        </div>
+        <button class="btn btn-d" id="resetBtn" style="margin-top:16px;width:100%;justify-content:center">Reset to closed basin (φ = 1)</button>
+      </div>
+      <div class="card plot-card reveal">
+        <svg id="plot" viewBox="0 0 640 420" role="img" aria-label="Interactive plot of the SQX curve"><line x1="56" x2="56" y1="370" y2="18" stroke="#e6edf0"></line><text x="56" y="390" text-anchor="middle" fill="#6b7f8b" font-size="12">0</text><line x1="168.4" x2="168.4" y1="370" y2="18" stroke="#e6edf0"></line><text x="168.4" y="390" text-anchor="middle" fill="#6b7f8b" font-size="12">1</text><line x1="280.8" x2="280.8" y1="370" y2="18" stroke="#e6edf0"></line><text x="280.8" y="390" text-anchor="middle" fill="#6b7f8b" font-size="12">2</text><line x1="393.2" x2="393.2" y1="370" y2="18" stroke="#e6edf0"></line><text x="393.2" y="390" text-anchor="middle" fill="#6b7f8b" font-size="12">3</text><line x1="505.6" x2="505.6" y1="370" y2="18" stroke="#e6edf0"></line><text x="505.6" y="390" text-anchor="middle" fill="#6b7f8b" font-size="12">4</text><line x1="618" x2="618" y1="370" y2="18" stroke="#e6edf0"></line><text x="618" y="390" text-anchor="middle" fill="#6b7f8b" font-size="12">5</text><line x1="56" x2="618" y1="370" y2="370" stroke="#e6edf0"></line><text x="46" y="374" text-anchor="end" fill="#6b7f8b" font-size="12">0.0</text><line x1="56" x2="618" y1="287.1764705882353" y2="287.1764705882353" stroke="#e6edf0"></line><text x="46" y="291.1764705882353" text-anchor="end" fill="#6b7f8b" font-size="12">0.4</text><line x1="56" x2="618" y1="204.35294117647058" y2="204.35294117647058" stroke="#e6edf0"></line><text x="46" y="208.35294117647058" text-anchor="end" fill="#6b7f8b" font-size="12">0.8</text><line x1="56" x2="618" y1="121.52941176470583" y2="121.52941176470583" stroke="#e6edf0"></line><text x="46" y="125.52941176470583" text-anchor="end" fill="#6b7f8b" font-size="12">1.2</text><line x1="56" x2="618" y1="38.70588235294116" y2="38.70588235294116" stroke="#e6edf0"></line><text x="46" y="42.70588235294116" text-anchor="end" fill="#6b7f8b" font-size="12">1.6</text><line x1="56" x2="618" y1="370" y2="370" stroke="#9aa9b2"></line><line x1="56" x2="56" y1="370" y2="18" stroke="#9aa9b2"></line><text x="348" y="410" text-anchor="middle" fill="#2a4252" font-size="14" font-style="italic">Aridity index  x = PET / P</text><text x="16" y="194" text-anchor="middle" fill="#2a4252" font-size="14" font-style="italic" transform="rotate(-90 16 194)">Evaporative index  E / P</text><path d="M56 370L247.07999999999998 18" stroke="#e0a63a" stroke-width="1.6" fill="none"></path><text x="211.112" y="59.411764705882376" fill="#b8862a" font-size="11" transform="rotate(-52 211.112 59.411764705882376)">energy limit</text><line stroke="#e0a63a" stroke-width="1.6" x1="168.4" x2="618" y1="162.94117647058823" y2="162.94117647058823"></line><text fill="#b8862a" font-size="11" text-anchor="end" x="614" y="155.94117647058823">water limit  E/P = φ</text><path fill="none" stroke="#9aa9b2" stroke-width="2" stroke-dasharray="6 5" d="M56.1 369.8L58.7 365.1L61.2 360.5L63.8 355.9L66.3 351.4L68.9 346.9L71.4 342.6L74.0 338.4L76.5 334.2L79.1 330.1L81.7 326.2L84.2 322.3L86.8 318.6L89.3 314.9L91.9 311.4L94.4 307.9L97.0 304.5L99.5 301.3L102.1 298.1L104.6 295.0L107.2 292.0L109.8 289.1L112.3 286.3L114.9 283.6L117.4 280.9L120.0 278.3L122.5 275.8L125.1 273.4L127.6 271.0L130.2 268.7L132.7 266.5L135.3 264.4L137.9 262.3L140.4 260.2L143.0 258.3L145.5 256.4L148.1 254.5L150.6 252.7L153.2 250.9L155.7 249.2L158.3 247.6L160.8 246.0L163.4 244.4L166.0 242.9L168.5 241.4L171.1 240.0L173.6 238.6L176.2 237.2L178.7 235.9L181.3 234.6L183.8 233.3L186.4 232.1L188.9 230.9L191.5 229.8L194.1 228.6L196.6 227.5L199.2 226.5L201.7 225.4L204.3 224.4L206.8 223.4L209.4 222.4L211.9 221.5L214.5 220.6L217.0 219.7L219.6 218.8L222.2 217.9L224.7 217.1L227.3 216.3L229.8 215.5L232.4 214.7L234.9 213.9L237.5 213.2L240.0 212.5L242.6 211.8L245.1 211.1L247.7 210.4L250.3 209.7L252.8 209.1L255.4 208.5L257.9 207.8L260.5 207.2L263.0 206.6L265.6 206.1L268.1 205.5L270.7 204.9L273.2 204.4L275.8 203.8L278.4 203.3L280.9 202.8L283.5 202.3L286.0 201.8L288.6 201.3L291.1 200.9L293.7 200.4L296.2 199.9L298.8 199.5L301.3 199.1L303.9 198.6L306.5 198.2L309.0 197.8L311.6 197.4L314.1 197.0L316.7 196.6L319.2 196.2L321.8 195.8L324.3 195.5L326.9 195.1L329.4 194.8L332.0 194.4L334.6 194.1L337.1 193.7L339.7 193.4L342.2 193.1L344.8 192.8L347.3 192.4L349.9 192.1L352.4 191.8L355.0 191.5L357.5 191.2L360.1 190.9L362.7 190.7L365.2 190.4L367.8 190.1L370.3 189.8L372.9 189.6L375.4 189.3L378.0 189.0L380.5 188.8L383.1 188.5L385.6 188.3L388.2 188.1L390.8 187.8L393.3 187.6L395.9 187.4L398.4 187.1L401.0 186.9L403.5 186.7L406.1 186.5L408.6 186.3L411.2 186.0L413.7 185.8L416.3 185.6L418.9 185.4L421.4 185.2L424.0 185.0L426.5 184.8L429.1 184.7L431.6 184.5L434.2 184.3L436.7 184.1L439.3 183.9L441.8 183.7L444.4 183.6L447.0 183.4L449.5 183.2L452.1 183.1L454.6 182.9L457.2 182.7L459.7 182.6L462.3 182.4L464.8 182.3L467.4 182.1L469.9 181.9L472.5 181.8L475.1 181.6L477.6 181.5L480.2 181.4L482.7 181.2L485.3 181.1L487.8 180.9L490.4 180.8L492.9 180.7L495.5 180.5L498.0 180.4L500.6 180.3L503.2 180.1L505.7 180.0L508.3 179.9L510.8 179.8L513.4 179.6L515.9 179.5L518.5 179.4L521.0 179.3L523.6 179.2L526.1 179.0L528.7 178.9L531.3 178.8L533.8 178.7L536.4 178.6L538.9 178.5L541.5 178.4L544.0 178.3L546.6 178.2L549.1 178.1L551.7 177.9L554.2 177.8L556.8 177.7L559.4 177.6L561.9 177.5L564.5 177.4L567.0 177.4L569.6 177.3L572.1 177.2L574.7 177.1L577.2 177.0L579.8 176.9L582.3 176.8L584.9 176.7L587.5 176.6L590.0 176.5L592.6 176.4L595.1 176.4L597.7 176.3L600.2 176.2L602.8 176.1L605.3 176.0L607.9 175.9L610.4 175.9L613.0 175.8L615.6 175.7L618.1 175.6"></path><path fill="none" stroke="#1f9e8f" stroke-width="3.2" stroke-linecap="round" d="M56.1 369.8L58.7 365.1L61.2 360.5L63.8 355.9L66.3 351.4L68.9 346.9L71.4 342.6L74.0 338.4L76.5 334.2L79.1 330.1L81.7 326.2L84.2 322.3L86.8 318.6L89.3 314.9L91.9 311.4L94.4 307.9L97.0 304.5L99.5 301.3L102.1 298.1L104.6 295.0L107.2 292.0L109.8 289.1L112.3 286.3L114.9 283.6L117.4 280.9L120.0 278.3L122.5 275.8L125.1 273.4L127.6 271.0L130.2 268.7L132.7 266.5L135.3 264.4L137.9 262.3L140.4 260.2L143.0 258.3L145.5 256.4L148.1 254.5L150.6 252.7L153.2 250.9L155.7 249.2L158.3 247.6L160.8 246.0L163.4 244.4L166.0 242.9L168.5 241.4L171.1 240.0L173.6 238.6L176.2 237.2L178.7 235.9L181.3 234.6L183.8 233.3L186.4 232.1L188.9 230.9L191.5 229.8L194.1 228.6L196.6 227.5L199.2 226.5L201.7 225.4L204.3 224.4L206.8 223.4L209.4 222.4L211.9 221.5L214.5 220.6L217.0 219.7L219.6 218.8L222.2 217.9L224.7 217.1L227.3 216.3L229.8 215.5L232.4 214.7L234.9 213.9L237.5 213.2L240.0 212.5L242.6 211.8L245.1 211.1L247.7 210.4L250.3 209.7L252.8 209.1L255.4 208.5L257.9 207.8L260.5 207.2L263.0 206.6L265.6 206.1L268.1 205.5L270.7 204.9L273.2 204.4L275.8 203.8L278.4 203.3L280.9 202.8L283.5 202.3L286.0 201.8L288.6 201.3L291.1 200.9L293.7 200.4L296.2 199.9L298.8 199.5L301.3 199.1L303.9 198.6L306.5 198.2L309.0 197.8L311.6 197.4L314.1 197.0L316.7 196.6L319.2 196.2L321.8 195.8L324.3 195.5L326.9 195.1L329.4 194.8L332.0 194.4L334.6 194.1L337.1 193.7L339.7 193.4L342.2 193.1L344.8 192.8L347.3 192.4L349.9 192.1L352.4 191.8L355.0 191.5L357.5 191.2L360.1 190.9L362.7 190.7L365.2 190.4L367.8 190.1L370.3 189.8L372.9 189.6L375.4 189.3L378.0 189.0L380.5 188.8L383.1 188.5L385.6 188.3L388.2 188.1L390.8 187.8L393.3 187.6L395.9 187.4L398.4 187.1L401.0 186.9L403.5 186.7L406.1 186.5L408.6 186.3L411.2 186.0L413.7 185.8L416.3 185.6L418.9 185.4L421.4 185.2L424.0 185.0L426.5 184.8L429.1 184.7L431.6 184.5L434.2 184.3L436.7 184.1L439.3 183.9L441.8 183.7L444.4 183.6L447.0 183.4L449.5 183.2L452.1 183.1L454.6 182.9L457.2 182.7L459.7 182.6L462.3 182.4L464.8 182.3L467.4 182.1L469.9 181.9L472.5 181.8L475.1 181.6L477.6 181.5L480.2 181.4L482.7 181.2L485.3 181.1L487.8 180.9L490.4 180.8L492.9 180.7L495.5 180.5L498.0 180.4L500.6 180.3L503.2 180.1L505.7 180.0L508.3 179.9L510.8 179.8L513.4 179.6L515.9 179.5L518.5 179.4L521.0 179.3L523.6 179.2L526.1 179.0L528.7 178.9L531.3 178.8L533.8 178.7L536.4 178.6L538.9 178.5L541.5 178.4L544.0 178.3L546.6 178.2L549.1 178.1L551.7 177.9L554.2 177.8L556.8 177.7L559.4 177.6L561.9 177.5L564.5 177.4L567.0 177.4L569.6 177.3L572.1 177.2L574.7 177.1L577.2 177.0L579.8 176.9L582.3 176.8L584.9 176.7L587.5 176.6L590.0 176.5L592.6 176.4L595.1 176.4L597.7 176.3L600.2 176.2L602.8 176.1L605.3 176.0L607.9 175.9L610.4 175.9L613.0 175.8L615.6 175.7L618.1 175.6"></path><line stroke="#0f2433" stroke-width="1" stroke-dasharray="3 4" opacity="0.5" x1="168.4" x2="168.4" y1="370" y2="241.45417328960053"></line><circle r="6" fill="#e9c46a" stroke="#0f2433" stroke-width="1.5" cx="168.4" cy="241.45417328960053"></circle></svg>
+        <div class="legend">
+          <span><i style="border-color:#1f9e8f"></i>SQX curve (current φ, γ)</span>
+          <span><i style="border-color:#9aa9b2;border-top-style:dashed"></i>Classical case, φ = 1</span>
+          <span><i style="border-color:#e0a63a;border-top-width:2px"></i>Energy and water limits</span>
+        </div>
+      </div>
+    </div>
+    <div class="card m3d reveal">
+      <canvas id="m3d" aria-label="Rotatable three-dimensional view of the SQX manifold: evaporative index over aridity index and openness"></canvas>
+      <div class="side">
+        <div class="kicker">The manifold in 3D</div>
+        <h3 style="margin-top:10px">One surface for every storage state</h3>
+        <p>Here E/P is drawn over the aridity index x and the openness φ, using the γ value set above. The highlighted line is the curve for your current φ. The classical Budyko curve is the slice at φ = 1.</p>
+        <p style="margin-bottom:6px"><strong style="color:var(--ink)">Drag</strong> to rotate. The surface turns slowly until you touch it.</p>
+        <div class="scale"></div><div class="scale-l"><span>low E/P</span><span>high E/P</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALIDATION -->
+<section class="section" id="validation">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Empirical validation</div>
+      <h2>Tested on the Brahmaputra at Goalpara</h2>
+      <p class="lead">The framework was checked against observed discharge at the Goalpara gauging station, on the Brahmaputra for 2002–2021, using GRACE/GRACE-FO storage and TerraClimate climate data. It was then tested independently on seven basins in Myanmar. The results show both where SQX adds value and where it does not.</p>
+    </div>
+    <div class="stats">
+      <div class="card stat reveal"><div class="t">Monthly skill</div><div class="v">0.650</div><div class="l">Nash–Sutcliffe efficiency over the 63 admissible months, against −0.005 for the classical closed-basin form</div></div>
+      <div class="card stat reveal"><div class="t">Kling–Gupta</div><div class="v">0.651</div><div class="l">Kling–Gupta efficiency over the same admissible months (φ &gt; 0)</div></div>
+      <div class="card stat reveal"><div class="t">Calibrated parameter</div><div class="v">1.454</div><div class="l">Annual optimum of the landscape parameter γ for the Goalpara catchment</div></div>
+      <div class="card stat reveal"><div class="t">Out-of-sample</div><div class="v">0.476</div><div class="l">Leave-one-out cross-validated NSE (out-of-sample check)</div></div>
+    </div>
+    <div class="study">
+      <div class="card reveal">
+        <h3>Where SQX adds value</h3>
+        <ul>
+          <li><strong>Monthly scale, Goalpara:</strong> over the 63 admissible months, SQX reaches NSE 0.650, while the classical φ = 1 form reaches −0.005. The effective monthly γ is about 0.68.</li>
+          <li><strong>Robustness:</strong> the result holds under leave-one-out cross-validation (NSE 0.476) and under GRACE Monte Carlo uncertainty propagation (2,000 realisations; mean NSE 0.603, 90% interval 0.16–0.90).</li>
+          <li><strong>Diagnostics:</strong> the admissibility violations in 2010, 2013 and 2017 coincide with anomalously large positive ΔS. This is consistent with GRACE leakage from nearby glacierised Himalayan terrain, so SQX also helps flag data problems.</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3>Where it does not, yet</h3>
+        <ul>
+          <li><strong>Annual scale:</strong> at Goalpara, φ only ranges from 0.92 to 1.09, and SQX shows no predictive advantage (NSE −1.407 against −0.601 for the classical form).</li>
+          <li><strong>Irrawaddy–Chindwin, Myanmar:</strong> across seven GRDC-gauged basins, SQX does not outperform the classical form in six. Diagnostic tests trace this to numerical conditioning of φ = 1 + ΔS/P under low dry-season precipitation, not to basin size, noise or a failure of the openness concept.</li>
+          <li><strong>Domain:</strong> September–December at Goalpara and severely storage-depleted states (φ ≤ 0) lie outside the present equilibrium formulation.</li>
+        </ul>
+      </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section class="section alt" id="programme">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Research programme</div>
+      <h2>Where SQX stands, and where it is going</h2>
+      <p class="lead">Each piece of work is labelled by its status, so peer-reviewed results stay separate from filed intellectual property and from work still in progress.</p>
+    </div>
+    <div class="prog">
+      <article class="card reveal"><span class="badge b-pub">Peer-reviewed</span><h3>Generalised 3D Budyko manifold</h3><p>Analytical derivation, structural-stability proofs and Brahmaputra validation of the SQX surface.</p><div class="meta"><em>Journal of Hydrology</em> 679 (2026) 136406</div></article>
+      <article class="card reveal"><span class="badge b-sub">Open preprint</span><h3>Coupled water–energy extension</h3><p>A dual Budyko view that links the hydrological partition to surface energy partitioning in open systems. It is being developed further.</p><div class="meta">Open-access preprint · ESS Open Archive</div></article>
+      <article class="card reveal"><span class="badge b-pat">Patent pending</span><h3>Quantum-enhanced Budyko modelling</h3><p>Systems and methods that build on the SQX framework. Applicant: IIT Guwahati.</p><div class="meta">Indian patent application · complete specification filed</div></article>
+      <article class="card reveal"><span class="badge b-th">Doctoral thesis</span><h3>Brahmaputra catchment behaviour</h3><p>Climate and human drivers of hydrological change in the Brahmaputra basin, with SQX as the central methodological contribution.</p><div class="meta">Ph.D., Civil Engineering, IIT Guwahati</div></article>
+      <article class="card reveal"><span class="badge b-pub">Peer-reviewed</span><h3>Transferability across basins</h3><p>An independent test on seven Irrawaddy–Chindwin basins in Myanmar defines an explicit boundary condition: the present φ = 1 + ΔS/P form is poorly conditioned when dry-season precipitation is low.</p><div class="meta">Reported in <em>Journal of Hydrology</em> 679 (2026) 136406</div></article>
+      <article class="card reveal"><span class="badge b-fut">Future direction</span><h3>Beyond ΔS/P: the ω–θ openness</h3><p>Estimating openness as φ = 1 + ω − θ from independent land-surface information, so that it does not inherit the 1/P sensitivity. The plan also includes dynamic γ, routing-corrected φ and tests on more glacier-fed basins.</p><div class="meta">Priorities named in the JoH paper</div></article>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="section" id="publications">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Publications &amp; preprints</div>
+      <h2>Scholarly record</h2>
+    </div>
+    <div class="pubs">
+      <article class="card pub reveal">
+        <div class="yr">2026</div>
+        <div>
+          <span class="badge b-pub">Journal article</span>
+          <h3>A generalized three-dimensional manifold for the Budyko hypothesis: analytical derivation and structural stability in open hydrological systems</h3>
+          <p class="au"><u>Shakya, C. M.</u>, &amp; Bhattacharjya, R. K.</p>
+          <p class="src"><em>Journal of Hydrology</em>, 679, 136406. Elsevier.</p>
+          <div class="lnk"><a href="https://doi.org/10.1016/j.jhydrol.2026.136406" target="_blank" rel="noopener">DOI: 10.1016/j.jhydrol.2026.136406 ↗</a><a href="#cite">Cite this ↓</a></div>
+        </div>
+      </article>
+      <article class="card pub reveal">
+        <div class="yr">2026</div>
+        <div>
+          <span class="badge b-sub">Preprint · open access</span>
+          <h3>Coupled water–energy extension of the ShakyaQX framework for open hydrological systems</h3>
+          <p class="au"><u>Shakya, C. M.</u>, &amp; Bhattacharjya, R. K.</p>
+          <p class="src">ESS Open Archive (ESSOAr) preprint. Free to read.</p>
+          <div class="lnk"><a href="https://doi.org/10.22541/essoar.15010546/v1" target="_blank" rel="noopener">DOI: 10.22541/essoar.15010546/v1 ↗</a></div>
+        </div>
+      </article>
+      <article class="card pub reveal">
+        <div class="yr">2025</div>
+        <div>
+          <span class="badge b-fut">Preprint</span>
+          <h3>Bridging hydrological theory and machine learning: multi-scale Budyko–Fu diagnostics of runoff sensitivity in the Brahmaputra Basin</h3>
+          <p class="au"><u>Shakya, C. M.</u>, &amp; Bhattacharjya, R. K.</p>
+          <p class="src">SSRN preprint.</p>
+          <div class="lnk"><a href="https://ssrn.com/abstract=5564932" target="_blank" rel="noopener">SSRN 5564932 ↗</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PATENT -->
+<section class="section alt" id="patent">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Intellectual property</div>
+      <h2>Patent application</h2>
+    </div>
+    <div class="card patent reveal">
+      <div class="l">
+        <span class="badge b-pat">Patent pending · India</span>
+        <h3 style="font-size:1.45rem;margin-top:14px">Quantum-Enhanced Systems and Methods for Budyko-Based Hydrological Modeling</h3>
+        <p style="color:var(--muted);margin:0">The application covers systems and methods that build on the SQX open-system partition framework. Only the published equation and results are described on this website. The claimed technical details are in the official patent record.</p>
+      </div>
+      <div class="r">
+        <dl>
+          <div><dt>Applicant</dt><dd>Indian Institute of Technology Guwahati</dd></div>
+          <div><dt>Inventors</dt><dd>Chandra Mohan Shakya<br>Prof. Rajib Kumar Bhattacharjya</dd></div>
+          <div><dt>Application No.</dt><dd>202531055230 · Indian Patent Office, Kolkata</dd></div>
+          <div><dt>Status</dt><dd>Complete specification filed (2026)<br>Priority date: 7 June 2025</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" id="milestones">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">Milestones</div>
+      <h2>How ShakyaQX developed</h2>
+    </div>
+    <div class="tl reveal">
+      <div class="ev"><div class="when">2020</div><h4>Doctoral research begins</h4><p>Ph.D. in Civil Engineering at IIT Guwahati, studying hydrological change in the Brahmaputra basin.</p></div>
+      <div class="ev"><div class="when">Groundwork</div><h4>Limits of closed-basin theory</h4><p>Budyko–Fu and machine-learning diagnostics across the basin show where classical assumptions break down.</p></div>
+      <div class="ev" style="--c:#c99a2e"><div class="when">Jun 2025</div><h4>Provisional patent</h4><p>The priority date is established for the ShakyaQX systems and methods.</p></div>
+      <div class="ev"><div class="when">2026</div><h4>SQX manifold published</h4><p><em>Journal of Hydrology</em> 679, 136406: derivation, stability and validation.</p></div>
+      <div class="ev" style="--c:#c99a2e"><div class="when">2026</div><h4>Complete specification filed</h4><p>Indian patent application by IIT Guwahati, with both researchers as inventors.</p></div>
+      <div class="ev" style="--c:#7d6fd6"><div class="when">Next</div><h4>Water–energy &amp; beyond</h4><p>Coupled water–energy theory, forward-computed openness and quantum-enhanced calibration.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PEOPLE -->
+<section class="section alt" id="people">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">People</div>
+      <h2>Research team</h2>
+      <p class="lead">Subsurface Hydrology Laboratory, Department of Civil Engineering, Indian Institute of Technology Guwahati, Assam 781039, India.</p>
+    </div>
+    <div class="people">
+      <article class="card person reveal">
+        <div class="av" aria-hidden="true">CMS</div>
+        <div>
+          <h3>Chandra Mohan Shakya</h3>
+          <p class="ds">Ph.D. Scholar, Department of Civil Engineering</p>
+          <p class="af">Indian Institute of Technology Guwahati</p>
+          <span class="role">Developer of ShakyaQX</span><span class="role">First author · Inventor</span>
+          <p class="bio">Works on hydrological modelling and water resources engineering, combining theoretical hydrology with machine-learning analysis across the Brahmaputra and central Indian basins. He has about 3.5 years of teaching experience, including at NIT Raipur and NIT Hamirpur, and was previously a Project Associate/JRF at IIT Mandi on a SERB-funded project.</p>
+          <p class="bio" style="color:var(--muted);font-size:.86rem"><strong>Interests:</strong> Budyko-type frameworks · open-system water balance · ML in hydrology · optimisation of water resources systems</p>
+          <a class="lk" href="mailto:chandra.mohan@iitg.ac.in">chandra.mohan@iitg.ac.in</a><a class="lk li-btn" href="https://www.linkedin.com/in/chandra-mohan-shakya-a083b830/" target="_blank" rel="noopener me"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn ↗</a>
+        </div>
+      </article>
+      <article class="card person reveal">
+        <div class="av b" aria-hidden="true">RKB</div>
+        <div>
+          <h3>Prof. Rajib Kumar Bhattacharjya</h3>
+          <p class="ds">Professor, Department of Civil Engineering</p>
+          <p class="af">Indian Institute of Technology Guwahati</p>
+          <span class="role">Ph.D. Supervisor</span><span class="role">Co-author · Co-inventor</span>
+          <p class="bio">Prof. Bhattacharjya has been a Professor at IIT Guwahati since 2015 and received his Ph.D. in Civil Engineering from IIT Kanpur. He has been a visiting faculty member at Dalhousie University, Canada. His research covers optimisation methods, computational hydraulics, the impact of climate change, and surface water–groundwater interaction.</p>
+          <a class="lk" href="https://www.iitg.ac.in/rkbc/" target="_blank" rel="noopener">Faculty profile, IIT Guwahati ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CITE + ACK -->
+<section class="section" id="cite">
+  <div class="wrap">
+    <div class="two">
+      <div class="reveal">
+        <div class="kicker">How to cite</div>
+        <h2 style="font-size:1.9rem">Citing ShakyaQX</h2>
+        <p style="color:var(--muted)">If you use the SQX framework or equation, please cite the original publication:</p>
+        <div class="apa">Shakya, C. M., &amp; Bhattacharjya, R. K. (2026). A generalized three-dimensional manifold for the Budyko hypothesis: Analytical derivation and structural stability in open hydrological systems. <em>Journal of Hydrology, 679</em>, 136406. https://doi.org/10.1016/j.jhydrol.2026.136406</div>
+        <div class="citebox">
+          <button class="copy" id="copyBib">Copy BibTeX</button>
+<pre id="bib">@article{Shakya2026SQX,
+  author  = {Shakya, Chandra Mohan and Bhattacharjya, Rajib Kumar},
+  title   = {A generalized three-dimensional manifold for the
+             Budyko hypothesis: analytical derivation and structural
+             stability in open hydrological systems},
+  journal = {Journal of Hydrology},
+  volume  = {679},
+  pages   = {136406},
+  year    = {2026},
+  doi     = {10.1016/j.jhydrol.2026.136406}
+}</pre>
+        </div>
+      </div>
+      <div class="reveal ack">
+        <div class="kicker">Acknowledgements</div>
+        <h2 style="font-size:1.9rem">Credits</h2>
+        <ul>
+          <li>This work was carried out in the <strong>Department of Civil Engineering, Indian Institute of Technology Guwahati</strong>, under the supervision of <strong>Prof. Rajib Kumar Bhattacharjya</strong>.</li>
+          <li>The authors thank the members of the <strong>Doctoral Committee</strong>, chaired by <strong>Prof. Suresh A. Kartha</strong>, with members <strong>Prof. Arup Kumar Sarma</strong> and <strong>Prof. Archana M. Nair</strong> (Department of Civil Engineering, IIT Guwahati), for their guidance and review.</li>
+          <li>Observed discharge at Goalpara: <strong>Central Water Commission (CWC)</strong>, Government of India. Myanmar discharge: <strong>Global Runoff Data Centre (GRDC)</strong>.</li>
+          <li>Terrestrial water storage: <strong>GRACE / GRACE-FO CSR RL06 mascon</strong> solutions (Tapley et al., 2019; Save et al., 2020).</li>
+          <li>Precipitation and PET: <strong>TerraClimate v1.0</strong> (Abatzoglou et al., 2018). Elevation: <strong>SRTM DEM</strong> (Farr et al., 2007).</li>
+          <li>The framework builds on the work of Budyko, Mezentsev, Choudhury, Yang and Fu on long-term water–energy balance.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><div><strong>SHAKYAQX</strong><div class="fine">Scientific research framework · Hydrology · Energy · Quantum computation</div></div><div>© <span id="year">2026</span> ShakyaQX. Research contributions and intellectual-property status are identified transparently.</div><div><a href="#home">Back to top ↑</a></div></div></footer>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <h5>ShakyaQX (SQX)</h5>
+        <p style="margin:0;max-width:360px">A research theme connecting open-system hydrology, energy and quantum-enhanced computation. Its foundation, the SQX manifold, was developed at the Department of Civil Engineering, IIT Guwahati.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul><li><a href="#vision">The ShakyaQX theme</a></li><li><a href="#framework">Framework</a></li><li><a href="#explorer">Interactive explorer</a></li><li><a href="#publications">Publications</a></li><li><a href="#cite">How to cite</a></li></ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul><li>Chandra Mohan Shakya</li><li>Dept. of Civil Engineering, IIT Guwahati</li><li>Assam 781039, India</li><li><a href="mailto:chandra.mohan@iitg.ac.in">chandra.mohan@iitg.ac.in</a></li><li><a href="https://www.linkedin.com/in/chandra-mohan-shakya-a083b830/" target="_blank" rel="noopener me">LinkedIn ↗</a></li></ul>
+      </div>
+    </div>
+    <div class="fine">
+      © <span id="yr">2026</span> Chandra Mohan Shakya. ShakyaQX and SQX refer to the framework published in <em>Journal of Hydrology</em> 679 (2026) 136406. This is a personal research website. It is not an official website of IIT Guwahati, and the views here are the author's own. Patent information is for reference only; the official patent record is authoritative.
+    </div>
+  </div>
+</footer>
+
 <script>
-const menuButton=document.getElementById('menuButton'),navLinks=document.getElementById('navLinks');
-menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
-navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false');}));
-document.getElementById('year').textContent=new Date().getFullYear();
+(function(){
+  // nav
+  var mb=document.getElementById('menuBtn'),nl=document.getElementById('navLinks');
+  mb.addEventListener('click',function(){var o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',String(o));});
+  nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open');mb.setAttribute('aria-expanded','false');});});
+  document.getElementById('yr').textContent=Math.max(2026,new Date().getFullYear());
+
+  // reveal on scroll
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    els.forEach(function(el){io.observe(el);});
+  } else els.forEach(function(el){el.classList.add('in');});
+
+  // SQX equation
+  function sqx(x,phi,g){return x*Math.pow(1+Math.pow(x/phi,g),-1/g);}
+  var NS='http://www.w3.org/2000/svg';
+  function el(tag,attrs,parent,text){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e;}
+
+  // Explorer
+  var P=document.getElementById('plot');P.innerHTML='';var W=640,H=420,m={l:56,r:22,t:18,b:50},xm=5,ym=1.7;
+  var X=function(v){return m.l+v/xm*(W-m.l-m.r)},Y=function(v){return H-m.b-Math.min(v,ym)/ym*(H-m.t-m.b)};
+  for(var i=0;i<=5;i++){el('line',{x1:X(i),x2:X(i),y1:Y(0),y2:Y(ym),stroke:'#e6edf0'},P);el('text',{x:X(i),y:H-m.b+20,'text-anchor':'middle',fill:'#6b7f8b','font-size':12},P,i);}
+  for(var v=0;v<=1.6001;v+=0.4){el('line',{x1:X(0),x2:X(xm),y1:Y(v),y2:Y(v),stroke:'#e6edf0'},P);el('text',{x:m.l-10,y:Y(v)+4,'text-anchor':'end',fill:'#6b7f8b','font-size':12},P,v.toFixed(1));}
+  el('line',{x1:X(0),x2:X(xm),y1:Y(0),y2:Y(0),stroke:'#9aa9b2'},P);el('line',{x1:X(0),x2:X(0),y1:Y(0),y2:Y(ym),stroke:'#9aa9b2'},P);
+  el('text',{x:(W+m.l)/2,y:H-10,'text-anchor':'middle',fill:'#2a4252','font-size':14,'font-style':'italic'},P,'Aridity index  x = PET / P');
+  el('text',{x:16,y:(H-m.b+m.t)/2,'text-anchor':'middle',fill:'#2a4252','font-size':14,'font-style':'italic',transform:'rotate(-90 16 '+(H-m.b+m.t)/2+')'},P,'Evaporative index  E / P');
+  var energy=el('path',{d:'M'+X(0)+' '+Y(0)+'L'+X(ym)+' '+Y(ym),stroke:'#e0a63a','stroke-width':1.6,fill:'none'},P);
+  el('text',{x:X(1.38),y:Y(1.5),fill:'#b8862a','font-size':11,transform:'rotate(-52 '+X(1.38)+' '+Y(1.5)+')'},P,'energy limit');
+  var wline=el('line',{stroke:'#e0a63a','stroke-width':1.6},P);
+  var wlab=el('text',{fill:'#b8862a','font-size':11,'text-anchor':'end'},P,'');
+  var ref=el('path',{fill:'none',stroke:'#9aa9b2','stroke-width':2,'stroke-dasharray':'6 5'},P);
+  var cur=el('path',{fill:'none',stroke:'#1f9e8f','stroke-width':3.2,'stroke-linecap':'round'},P);
+  var vline=el('line',{stroke:'#0f2433','stroke-width':1,'stroke-dasharray':'3 4',opacity:.5},P);
+  var dot=el('circle',{r:6,fill:'#e9c46a',stroke:'#0f2433','stroke-width':1.5},P);
+
+  var phi=document.getElementById('phi'),gam=document.getElementById('gam'),xv=document.getElementById('xv');
+  function curve(p,g){var d='';for(var j=0;j<=220;j++){var x=0.001+j/220*xm;d+=(j?'L':'M')+X(x).toFixed(1)+' '+Y(sqx(x,p,g)).toFixed(1);}return d;}
+  function draw(){
+    var p=+phi.value,g=+gam.value,x=+xv.value,ep=sqx(x,p,g);
+    document.getElementById('phiOut').textContent=p.toFixed(2);
+    document.getElementById('gamOut').textContent=g.toFixed(3);
+    document.getElementById('xOut').textContent=x.toFixed(2);
+    document.getElementById('epOut').textContent=ep.toFixed(3);
+    document.getElementById('qpOut').textContent=(p-ep).toFixed(3);
+    ref.setAttribute('d',curve(1,g));cur.setAttribute('d',curve(p,g));
+    wline.setAttribute('x1',X(Math.min(p,xm)));wline.setAttribute('x2',X(xm));wline.setAttribute('y1',Y(p));wline.setAttribute('y2',Y(p));
+    wlab.setAttribute('x',X(xm)-4);wlab.setAttribute('y',Y(p)-7);wlab.textContent='water limit  E/P = φ';
+    dot.setAttribute('cx',X(x));dot.setAttribute('cy',Y(ep));
+    vline.setAttribute('x1',X(x));vline.setAttribute('x2',X(x));vline.setAttribute('y1',Y(0));vline.setAttribute('y2',Y(ep));
+  }
+  [phi,gam,xv].forEach(function(i){i.addEventListener('input',draw);});
+  document.getElementById('resetBtn').addEventListener('click',function(){phi.value=1;gam.value=1.454;draw();});
+  draw();
+
+  // family of curves (draws in when scrolled into view)
+  (function(){
+    var s=document.getElementById('famPlot');if(!s)return;s.innerHTML='';
+    var W=640,H=380,m={l:50,r:70,t:16,b:44},xm=4,ym=1.45;
+    var X=function(v){return m.l+v/xm*(W-m.l-m.r)},Y=function(v){return H-m.b-v/ym*(H-m.t-m.b)};
+    var i;for(i=0;i<=4;i++){el('line',{x1:X(i),x2:X(i),y1:Y(0),y2:Y(ym),stroke:'#ffffff14'},s);el('text',{x:X(i),y:H-m.b+18,'text-anchor':'middle',fill:'#8fa9b4','font-size':12},s,i);}
+    [0,.4,.8,1.2].forEach(function(v){el('line',{x1:X(0),x2:X(xm),y1:Y(v),y2:Y(v),stroke:'#ffffff14'},s);el('text',{x:m.l-9,y:Y(v)+4,'text-anchor':'end',fill:'#8fa9b4','font-size':12},s,v.toFixed(1));});
+    el('text',{x:(W+m.l-m.r)/2,y:H-6,'text-anchor':'middle',fill:'#c5d7de','font-size':13,'font-style':'italic'},s,'Aridity index  x = PET / P');
+    el('text',{x:14,y:(H-m.b)/2,'text-anchor':'middle',fill:'#c5d7de','font-size':13,'font-style':'italic',transform:'rotate(-90 14 '+(H-m.b)/2+')'},s,'E / P');
+    el('path',{d:'M'+X(0)+' '+Y(0)+'L'+X(ym)+' '+Y(ym),stroke:'#e9c46a77','stroke-width':1.5,'stroke-dasharray':'4 5',fill:'none'},s);
+    el('text',{x:X(1.18),y:Y(1.32),fill:'#e9c46aaa','font-size':11,transform:'rotate(-50 '+X(1.18)+' '+Y(1.32)+')'},s,'energy limit');
+    var phis=[0.7,0.85,1,1.15,1.3],cols=['#2e7f8f','#3aa6a0','#cfe5ea','#5fd3bf','#e9c46a'],paths=[];
+    phis.forEach(function(p,k){
+      var d='';for(var j=0;j<=160;j++){var x=0.001+j/160*xm;d+=(j?'L':'M')+X(x).toFixed(1)+' '+Y(sqx(x,p,1.454)).toFixed(1);}
+      var path=el('path',{d:d,fill:'none',stroke:cols[k],'stroke-width':p===1?2:2.8,'stroke-linecap':'round','class':p===1?'':'fp'},s);
+      if(p===1)path.setAttribute('stroke-dasharray','6 5');else paths.push(path);
+      el('text',{x:X(xm)+8,y:Y(sqx(xm,p,1.454))+4,fill:cols[k],'font-size':12,'font-weight':700},s,'φ = '+p.toFixed(2));
+    });
+    // particle running along the phi = 1.3 curve
+    var dot=el('circle',{r:5,fill:'#fff',opacity:0},s);
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function play(){
+      paths.forEach(function(pt,k){var L=pt.getTotalLength();pt.style.strokeDasharray=L;pt.style.strokeDashoffset=L;pt.getBoundingClientRect();pt.style.transitionDelay=(k*0.18)+'s';pt.style.strokeDashoffset=0;});
+      var t0=null,src=paths[paths.length-1],L=src.getTotalLength();dot.setAttribute('opacity',1);
+      function step(ts){if(!t0)t0=ts;var u=((ts-t0)/5200)%1,pt=src.getPointAtLength(u*L);dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y);requestAnimationFrame(step);}
+      setTimeout(function(){requestAnimationFrame(step);},1600);
+    }
+    if(reduce||!('IntersectionObserver' in window))return;
+    var io2=new IntersectionObserver(function(es){if(es[0].isIntersecting){io2.disconnect();play();}},{threshold:.35});io2.observe(s);
+  })();
+
+  // active nav link
+  var secs=[].slice.call(document.querySelectorAll('main section[id]')),navA=[].slice.call(document.querySelectorAll('.links a'));
+  function onScroll(){var y=window.scrollY+120,cur='';secs.forEach(function(sc){if(sc.offsetTop<=y)cur=sc.id;});navA.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // 3D manifold
+  (function(){
+    var cv=document.getElementById('m3d');if(!cv||!cv.getContext)return;
+    var ctx=cv.getContext('2d'),yaw=-0.75,pitch=0.5,auto=true,drag=null,W,H,DPR;
+    var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function size(){DPR=Math.min(2,window.devicePixelRatio||1);var r=cv.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
+    var XM=4,PH0=0.4,PH1=1.6,ZM=1.6;
+    function P(x,f,z){var X=(x/XM-.5)*2,Y=((f-PH0)/(PH1-PH0)-.5)*2,Z=(z/ZM-.5)*1.5;
+      var c=Math.cos(yaw),s=Math.sin(yaw),x1=X*c-Y*s,y1=X*s+Y*c;var sc=Math.min(W*0.8,H)*0.34;
+      return [W/2+x1*sc, H/2-10-(Z*Math.cos(pitch)+y1*Math.sin(pitch))*sc];}
+    function col(t){var st=[[43,95,158],[31,158,143],[233,196,106],[210,120,90]];t=Math.max(0,Math.min(1,t))*3;var i=Math.min(2,Math.floor(t)),f=t-i,a=st[i],b=st[i+1];return 'rgb('+[0,1,2].map(function(k){return Math.round(a[k]+(b[k]-a[k])*f)}).join(',')+')';}
+    function line(pts,c,w){ctx.beginPath();pts.forEach(function(q,i){i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]);});ctx.strokeStyle=c;ctx.lineWidth=w;ctx.stroke();}
+    function text(t,q,c){ctx.fillStyle=c||'#9fb9c4';ctx.fillText(t,q[0],q[1]);}
+    function render(){
+      var g=+document.getElementById('gam').value,phiNow=+document.getElementById('phi').value;
+      ctx.clearRect(0,0,W,H);ctx.font='12px Inter,sans-serif';ctx.textAlign='center';
+      // base box
+      var b=[[0,PH0],[XM,PH0],[XM,PH1],[0,PH1],[0,PH0]].map(function(a){return P(a[0],a[1],0)});line(b,'#ffffff30',1);
+      [[0,PH0],[XM,PH0],[0,PH1]].forEach(function(a){line([P(a[0],a[1],0),P(a[0],a[1],ZM)],'#ffffff1c',1);});
+      // mesh: lines of constant phi
+      var nF=13,nX=60,i,j;
+      for(i=0;i<nF;i++){var f=PH0+(PH1-PH0)*i/(nF-1),pts=[];for(j=0;j<=nX;j++){var x=0.01+XM*j/nX;pts.push(P(x,f,Math.min(ZM,x*Math.pow(1+Math.pow(x/f,g),-1/g))));}
+        line(pts,col((f-PH0)/(PH1-PH0)),Math.abs(f-1)<1e-6?1.6:1.1);}
+      // lines of constant x
+      for(j=1;j<=8;j++){var xx=XM*j/8,p2=[];for(i=0;i<=30;i++){var ff=PH0+(PH1-PH0)*i/30;p2.push(P(xx,ff,xx*Math.pow(1+Math.pow(xx/ff,g),-1/g)));}line(p2,'#ffffff26',1);}
+      // classical slice phi=1 dashed white
+      var cl=[];for(j=0;j<=nX;j++){var x3=0.01+XM*j/nX;cl.push(P(x3,1,x3*Math.pow(1+Math.pow(x3,g),-1/g)));}
+      ctx.setLineDash([6,5]);line(cl,'#ffffffcc',1.6);ctx.setLineDash([]);
+      // current phi highlight
+      if(phiNow>=PH0&&phiNow<=PH1){var hp=[];for(j=0;j<=nX;j++){var x4=0.01+XM*j/nX;hp.push(P(x4,phiNow,x4*Math.pow(1+Math.pow(x4/phiNow,g),-1/g)));}line(hp,'#fff',3.2);line(hp,'#46c9b8',2);}
+      // axis labels
+      text('x = PET/P →',P(XM*0.55,PH0-0.22,0),'#cfe5ea');text('φ openness →',P(XM+0.55,(PH0+PH1)/2,0),'#cfe5ea');text('E/P',P(-0.3,PH0,ZM*0.9),'#cfe5ea');
+      text('0',P(0,PH0-0.1,0));text(XM,P(XM,PH0-0.1,0));text(PH0,P(XM+0.25,PH0,0));text(PH1,P(XM+0.25,PH1,0));
+    }
+    function loop(){if(auto&&!reduce)yaw+=0.0035;render();requestAnimationFrame(loop);}
+    function pt(e){return e.touches?e.touches[0]:e;}
+    cv.addEventListener('pointerdown',function(e){auto=false;drag={x:e.clientX,y:e.clientY,yaw:yaw,pitch:pitch};cv.setPointerCapture(e.pointerId);});
+    cv.addEventListener('pointermove',function(e){if(!drag)return;yaw=drag.yaw+(e.clientX-drag.x)*0.008;pitch=Math.max(0.05,Math.min(1.3,drag.pitch+(e.clientY-drag.y)*0.006));});
+    cv.addEventListener('pointerup',function(){drag=null;});cv.addEventListener('pointercancel',function(){drag=null;});
+    window.addEventListener('resize',size);size();loop();
+  })();
+
+  // copy bibtex
+  document.getElementById('copyBib').addEventListener('click',function(){
+    var b=this,t=document.getElementById('bib').textContent;
+    function done(){b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy BibTeX';},1800);}
+    if(navigator.clipboard)navigator.clipboard.writeText(t).then(done,function(){});
+    else{var r=document.createRange();r.selectNodeContents(document.getElementById('bib'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done();}catch(e){}}
+  });
+})();
 </script>
-</body></html>
+</body>
+</html>
