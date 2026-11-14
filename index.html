@@ -253,6 +253,18 @@ html:not(.js) .m3d canvas{background:url(data:image/jpeg;base64,/9j/4AAQSkZJRgAB
 .ack ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:.93rem}
 .ack li{margin-bottom:9px}
 
+.under-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:22px;border-left:4px solid var(--teal);color:var(--ink)}
+.under-cta:hover{text-decoration:none;border-color:var(--teal-l);transform:translateY(-1px)}
+.under-cta h3{margin:8px 0 6px}.under-cta p{margin:0;color:var(--muted);font-size:.92rem;max-width:720px}
+.under-cta .btn{flex:none}
+@media(max-width:700px){.under-cta{flex-direction:column;align-items:flex-start}}
+.brand small{white-space:nowrap}
+@media(max-width:1240px){.links a{padding:8px 7px;font-size:.82rem}}
+@media(max-width:1100px){
+  .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--navy);padding:12px 18px 20px;border-bottom:1px solid #ffffff1a}
+  .links.open{display:flex}.links a{font-size:.92rem;padding:9px 11px}.links a.cta{margin:6px 0 0;text-align:center}
+  .menu{display:block}
+}
 /* FOOTER */
 footer{background:#06151f;color:#9ab0ba;padding:50px 0 34px;font-size:.88rem}
 .f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
@@ -302,6 +314,7 @@ footer ul{list-style:none;margin:0;padding:0}footer li{margin-bottom:7px}
       <a href="#vision">Theme</a>
       <a href="#framework">Framework</a>
       <a href="#explorer">Explorer</a>
+      <a href="understand.html">Understand</a>
       <a href="#validation">Validation</a>
       <a href="#programme">Research</a>
       <a href="#publications">Publications</a>
@@ -493,6 +506,14 @@ footer ul{list-style:none;margin:0;padding:0}footer li{margin-bottom:7px}
         <div class="scale"></div><div class="scale-l"><span>low E/P</span><span>high E/P</span></div>
       </div>
     </div>
+    <a class="card under-cta" href="understand.html">
+      <div>
+        <div class="kicker">New · Understanding SQX</div>
+        <h3>Open systems, worked examples, drought and river interlinking</h3>
+        <p>Diagrams and interactive demonstrations: a step-by-step calculation, six climate zones, a drought scenario, an inter-basin transfer, and where each extra millimetre of water goes.</p>
+      </div>
+      <span class="btn btn-d">Open the guide →</span>
+    </a>
   </div>
 </section>
 
@@ -722,7 +743,7 @@ footer ul{list-style:none;margin:0;padding:0}footer li{margin-bottom:7px}
       </div>
       <div>
         <h5>Explore</h5>
-        <ul><li><a href="#vision">The ShakyaQX theme</a></li><li><a href="#framework">Framework</a></li><li><a href="#explorer">Interactive explorer</a></li><li><a href="#publications">Publications</a></li><li><a href="#cite">How to cite</a></li></ul>
+        <ul><li><a href="#vision">The ShakyaQX theme</a></li><li><a href="#framework">Framework</a></li><li><a href="#explorer">Interactive explorer</a></li><li><a href="understand.html">Understanding SQX</a></li><li><a href="#publications">Publications</a></li><li><a href="#cite">How to cite</a></li></ul>
       </div>
       <div>
         <h5>Contact</h5>
